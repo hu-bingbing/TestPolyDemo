@@ -72,15 +72,15 @@ namespace GamePoly.Hex
                 int alt = this[i];
                 var tempLandItem = m_landList[i];
                 var tempLandData = tempLandItem.thisLandData;
-                LandType tempType;
+                LandSurfaceType tempType;
                 if(alt == 0)
                 {
-                    tempType = LandType.Water;
+                    tempType = LandSurfaceType.Water;
                     waterIndex += 1;
                 }
                 else
                 {
-                    tempType = LandType.Ground;
+                    tempType = LandSurfaceType.Ground;
                     landIndex += 1;
                 }
                 tempLandItem.SetLandType(tempType);

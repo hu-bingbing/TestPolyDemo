@@ -11,16 +11,23 @@ namespace GamePloy
         public static string LandRoot = "LandRoot";
         public static string CameraRoot = "EntityCameraRoot";
 
-        public static Dictionary<LandType, string> LandItemPathByTypeDic = new Dictionary<LandType, string>()
+        public static Dictionary<LandSurfaceType, string> LandItemPathByTypeDic = new Dictionary<LandSurfaceType, string>()
         {
-              {LandType.Ground,LandEntityPath.GrandItemPath},
-              {LandType.Water,LandEntityPath.WaterItemPath},
-              {LandType.WaterLight,LandEntityPath.WaterLightItemPath},
-              {LandType.WaterDeep,LandEntityPath.WaterDeepItemPath},
+              {LandSurfaceType.Ground,LandEntityPath.GrandItemPath},
+              {LandSurfaceType.Water,LandEntityPath.WaterItemPath},
+              {LandSurfaceType.WaterLight,LandEntityPath.WaterLightItemPath},
+              {LandSurfaceType.WaterDeep,LandEntityPath.WaterDeepItemPath},
 
 
         };
 
+        public static Dictionary<LandFeatureType, string> LandFeaturePathDic = new Dictionary<LandFeatureType, string>()
+        {
+              {LandFeatureType.BornPoint,BuildingDef.BornArchitecture01},
+             
+
+
+        };
 
 
 
@@ -36,15 +43,22 @@ namespace GamePloy
         #endregion
     }
     /// <summary>
-    /// 地形类型
+    /// 地表类型
     /// </summary>
-    public enum LandType
+    public enum LandSurfaceType
     {
         Ground,
         Water,
         WaterLight,
         WaterDeep,
 
+    }
+    /// <summary>
+    /// 建筑类型
+    /// </summary>
+    public enum LandFeatureType
+    {
+        BornPoint,
     }
 
     public class LandEntityPath
@@ -72,7 +86,7 @@ namespace GamePloy
 
     public static class BuildingDef
     {
-        public static string BornArchitecture01 = "Buildings/BornPos";
+        public static string BornArchitecture01 = "Buildings/MidPoint";
        
     }
 
@@ -100,5 +114,12 @@ namespace GamePloy
         public const string PVEModule = "PVEModule";
         public const string PVPModule = "PVPModule";
         public const string HostModule = "HostModule";
+    }
+    
+    public static class OperationDef
+    {
+        public const int MoveX = 11;
+        public const int MoveY = 12;
+        public const int Tap = 20;
     }
 }

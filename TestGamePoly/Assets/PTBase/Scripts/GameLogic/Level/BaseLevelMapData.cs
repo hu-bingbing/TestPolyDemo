@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace GamePloy
 {
-    public abstract class BaseLevelData
+    public abstract class BaseLevelMapData
     {
         protected GameObject objLandItem;
         protected GameObject objGroundItem;

@@ -15,8 +15,8 @@ namespace GamePloy
         public int Index_X;
         public int Index_Y;
         public int Index_Z;
-        
-        public LandSurfaceData(Vector3 _pos, int _x,int _y,int _z)
+
+        public LandSurfaceData(Vector3 _pos, int _x, int _y, int _z)
         {
             Pos = _pos;
             Index_X = _x;
@@ -28,11 +28,11 @@ namespace GamePloy
 
     public abstract class BaseLandItem : ObjectRectCom
     {
-        private LandType m_landType;
+        protected LandSurfaceType m_landType;
         /// <summary>
         /// 地形类型
         /// </summary>
-        public LandType thisLandFeatureType
+        public LandSurfaceType thisLandFeatureType
         {
             get { return m_landType; }
         }
@@ -49,13 +49,13 @@ namespace GamePloy
             get { return m_objItem; }
         }
 
-        private List<Vector3> m_neighborIndexList;
+        protected List<Vector3> m_neighborIndexList;
         public List<Vector3> NeighborIndexList
         {
             get { return m_neighborIndexList; }
         }
 
-        private bool m_isShow;
+        protected bool m_isShow;
         /// <summary>
         /// 是否显示地形
         /// </summary>
@@ -63,10 +63,11 @@ namespace GamePloy
         {
             get { return m_isShow; }
         }
-        private Action<BaseLandItem, int> m_showFogCallback;
 
+        protected Action<BaseLandItem, int> m_showFogCallback;
 
         #region 外部调用
+
 
         /// <summary>
         /// 新建地表
@@ -86,13 +87,39 @@ namespace GamePloy
             m_isShow = false;
         }
 
-        public void SetLandType(LandType _type)
+        public void SetLandType(LandSurfaceType _type)
         {
             m_landType = _type;
         }
 
+        public void SetHighlight()
+        {
+            var mesh = UtilityTool.GetChild(modelPoint.gameObject, "baseItem", true);
+            var renderer = mesh.GetComponent<Renderer>();
+            if (!renderer)
+            {
+                renderer = mesh.gameObject.AddComponent<Renderer>();
+            }
+            Material highlightMaterial = new Material(Shader.Find("Custom/RimLighting2"));
+            if (highlightMaterial != null)
+            {
+                renderer.material = highlightMaterial;
+                //highlightMaterial.SetTexture("_MainTex", modelTexture);
+                //highlightMaterial.SetColor("_MainColor", mainColor);
+            }
+            CreateLandFeature();
+            m_isShow = true;
+        }
+
+
+        public void RayThisLand()
+        {
+            Debug.Log("type:" + m_landType);
+        }
+
 
         #endregion
+
 
         /// <summary>
         /// 
@@ -124,25 +151,9 @@ namespace GamePloy
             SetNeighbor(2);
         }
 
-        public void SetHighlight()
-        {
-            var mesh = UtilityTool.GetChild(modelPoint.gameObject, "baseItem", true);
-            var renderer = mesh.GetComponent<Renderer>();
-            if (!renderer)
-            {
-                renderer = mesh.gameObject.AddComponent<Renderer>();
-            }
-            Material highlightMaterial = new Material(Shader.Find("Custom/RimLighting2"));
-            if (highlightMaterial != null)
-            {
-                renderer.material = highlightMaterial;
-                //highlightMaterial.SetTexture("_MainTex", modelTexture);
-                //highlightMaterial.SetColor("_MainColor", mainColor);
-            }
-            CreateLandFeature();
-        }
+     
 
-        private List<Vector3> GetNeighborBrick(Vector3 centrePos)
+        protected List<Vector3> GetNeighborBrick(Vector3 centrePos)
         {
             List<Vector3> tempNeighborBrick = new List<Vector3>();
             float tempX = centrePos.x;
@@ -164,10 +175,6 @@ namespace GamePloy
         {
             OnRelease();
         }
-
-
-
-
 
 
         #region 需要Override 方法

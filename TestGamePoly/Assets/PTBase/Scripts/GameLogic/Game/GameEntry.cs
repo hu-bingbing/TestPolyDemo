@@ -31,15 +31,17 @@ namespace GamePloy
             Application.targetFrameRate = 30;
             Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
-
-        }
-
-        protected override void OnAppCreate()
-        {
+            GameManager.Instance.Initialize();
             LevelManager.Instance.Initialize();
             GestureManager.Instance.Initialize();
             UIManager.Instance.Initialize("UI/");
             ModuleManager.Instance.Initialize();
+        }
+
+        protected override void OnAppCreate()
+        {
+            GameMain.AddProcess(GameManager.Instance);
+            GameMain.AddProcess(LevelManager.Instance);
         }
 
         protected override void OnAppStart()

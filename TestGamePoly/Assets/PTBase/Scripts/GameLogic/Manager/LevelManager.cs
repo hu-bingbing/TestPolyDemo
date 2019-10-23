@@ -19,14 +19,20 @@ namespace GamePloy
             get { return m_currentLevelType; }
         }
 
-        private BaseLevelData m_currentLevelData;
-        public BaseLevelData CurrentLevelData
+        private BaseLevelMapData m_currentLevelData;
+        public BaseLevelMapData CurrentLevelData
         {
             get { return m_currentLevelData; }
         }
 
         private Transform m_landRoot;
         private Transform m_cameraRoot;
+
+        private Camera m_gameCamera;
+        public Camera GameCamera
+        {
+            get { return m_gameCamera; }
+        }
 
         public int interval
         {
@@ -57,11 +63,11 @@ namespace GamePloy
         {
             if (_type == LevelType.EASY)
             {
-                m_currentLevelData = CreateLevelData<EasyLevelData>(parent, arg);
+                m_currentLevelData = CreateLevelData<EasyLevelMapData>(parent, arg);
             }
         }
 
-        public T CreateLevelData<T>(Transform parent, object arg = null) where T : BaseLevelData,new()
+        public T CreateLevelData<T>(Transform parent, object arg = null) where T : BaseLevelMapData,new()
         {
             T leveldata = new T();
             leveldata.Create(parent, arg);
@@ -80,13 +86,30 @@ namespace GamePloy
                 m_cameraRoot.gameObject.AddComponent<CameraFollow>();
             }
             m_cameraRoot.GetComponent<CameraFollow>().target = target;
+            m_gameCamera = UtilityTool.GetChild(m_cameraRoot.gameObject, "Camera", true).GetComponent<Camera>();
         }
-
-
+        
         public void ToUpdate()
         {
-            throw new System.NotImplementedException();
+            if (Input.GetMouseButtonDown(0) && m_gameCamera != null)
+            {
+                Debug.Log("OnCLickButtonDown");
+                RayTheMap();
+            }
         }
+
+        public void RayTheMap()
+        {
+            RaycastHit hit;
+            Ray ray = m_gameCamera.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray, out hit, 100))
+            {
+                var temp = hit.transform.GetComponent<BaseLandItem>();
+                temp.RayThisLand();
+            }
+        }
+
     }
 }
 

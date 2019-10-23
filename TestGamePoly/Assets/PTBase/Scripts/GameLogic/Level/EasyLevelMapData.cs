@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace GamePloy
 {
-    public class EasyLevelData : BaseLevelData
+    public class EasyLevelMapData : BaseLevelMapData
     {
         private Dictionary<LandSurfaceData, LandSurfaceItem> m_landDic;
         private Dictionary<Vector3, LandSurfaceItem> m_landIndexDic;
@@ -111,9 +111,17 @@ namespace GamePloy
         
         protected override void OnSetBornPos()
         {
-            int _randomIndex = UnityEngine.Random.Range(0, m_landList.Count);
-            Debug.Log("_randomIndex" + _randomIndex);
-            thisBornLandItem = m_landList[_randomIndex];
+            int bornX = countx - 6;
+            int bornY = county - 6;
+            bornX = UnityEngine.Random.Range(-bornX, bornX);
+            bornY = UnityEngine.Random.Range(-bornY, bornY);
+            Vector3 bornIndex = new Vector3(bornX, bornY, (0 - bornX - bornY));
+            Debug.Log("_bornIndex:" + bornIndex);
+            thisBornLandItem = m_landIndexDic[bornIndex];
+
+            //int _randomIndex = UnityEngine.Random.Range(0, m_landList.Count);
+            //Debug.Log("_randomIndex" + _randomIndex);
+            //thisBornLandItem = m_landList[_randomIndex];
             thisBornLandItem.CreateBuilding(BuildingDef.BornArchitecture01);
             LevelManager.Instance.SetCameraTarget(thisBornLandItem.transform);
         }
