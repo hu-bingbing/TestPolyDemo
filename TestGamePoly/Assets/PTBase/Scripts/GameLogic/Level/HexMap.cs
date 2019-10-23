@@ -8,12 +8,12 @@ namespace GamePoly.Hex
     public class HexMap
     {
         private int[] data;
-        private List<LandItem> m_landList;
-        public List<LandItem> LandList
+        private List<LandSurfaceItem> m_landList;
+        public List<LandSurfaceItem> LandList
         {
             set
             {
-                m_landList = new List<LandItem>();
+                m_landList = new List<LandSurfaceItem>();
                 m_landList = value;
                 data = new int[m_landList.Count];
             }

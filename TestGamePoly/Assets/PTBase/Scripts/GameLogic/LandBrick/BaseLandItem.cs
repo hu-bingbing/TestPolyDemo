@@ -5,7 +5,10 @@ using UnityEngine;
 
 namespace GamePloy
 {
-    public class LandData
+    /// <summary>
+    /// 地表数据
+    /// </summary>
+    public class LandSurfaceData
     {
         public Vector3 Pos;
         public Vector3 IndexPos;
@@ -13,7 +16,7 @@ namespace GamePloy
         public int Index_Y;
         public int Index_Z;
         
-        public LandData(Vector3 _pos, int _x,int _y,int _z)
+        public LandSurfaceData(Vector3 _pos, int _x,int _y,int _z)
         {
             Pos = _pos;
             Index_X = _x;
@@ -26,13 +29,16 @@ namespace GamePloy
     public abstract class BaseLandItem : ObjectRectCom
     {
         private LandType m_landType;
-        public LandType thisLandType
+        /// <summary>
+        /// 地形类型
+        /// </summary>
+        public LandType thisLandFeatureType
         {
             get { return m_landType; }
         }
 
-        protected LandData m_landData;
-        public LandData thisLandData
+        protected LandSurfaceData m_landData;
+        public LandSurfaceData thisLandData
         {
             get { return m_landData; }
         }
@@ -49,25 +55,44 @@ namespace GamePloy
             get { return m_neighborIndexList; }
         }
 
+        private bool m_isShow;
+        /// <summary>
+        /// 是否显示地形
+        /// </summary>
+        public bool IsFeatureShow
+        {
+            get { return m_isShow; }
+        }
         private Action<BaseLandItem, int> m_showFogCallback;
 
 
+        #region 外部调用
 
-        public void Create(LandData _landData, Transform parent, System.Action<BaseLandItem, int> showFogCallback = null)
+        /// <summary>
+        /// 新建地表
+        /// </summary>
+        /// <param name="_landData"></param>
+        /// <param name="parent"></param>
+        /// <param name="showFogCallback"></param>
+        public void CreateSurface(LandSurfaceData _landData, Transform parent, System.Action<BaseLandItem, int> showFogCallback = null)
         {
             m_landData = _landData;
             this.transform.SetParent(parent, true);
             this.transform.position = _landData.Pos;
             m_showFogCallback = showFogCallback;
-            OnCreateBaseLand();
+            OnCreateLandSurface();
             m_neighborIndexList = new List<Vector3>();
             m_neighborIndexList = GetNeighborBrick(m_landData.IndexPos);
+            m_isShow = false;
         }
 
         public void SetLandType(LandType _type)
         {
             m_landType = _type;
         }
+
+
+        #endregion
 
         /// <summary>
         /// 
@@ -79,10 +104,12 @@ namespace GamePloy
                 m_showFogCallback(this, distance);
             }
         }
-
-        public void CreateLand()
+        /// <summary>
+        /// 新建地形
+        /// </summary>
+        public void CreateLandFeature()
         {
-            m_objItem = Instantiate(Resources.Load<GameObject>(ConstantData.LandItemPathByTypeDic[thisLandType]));
+            m_objItem = Instantiate(Resources.Load<GameObject>(ConstantData.LandItemPathByTypeDic[thisLandFeatureType]));
 
             ObjectUtil.Attach(m_objItem.transform, modelPoint);
             //ObjectUtil.Attach(this.transform, parent);
@@ -112,10 +139,10 @@ namespace GamePloy
                 //highlightMaterial.SetTexture("_MainTex", modelTexture);
                 //highlightMaterial.SetColor("_MainColor", mainColor);
             }
-            CreateLand();
+            CreateLandFeature();
         }
 
-        public List<Vector3> GetNeighborBrick(Vector3 centrePos)
+        private List<Vector3> GetNeighborBrick(Vector3 centrePos)
         {
             List<Vector3> tempNeighborBrick = new List<Vector3>();
             float tempX = centrePos.x;
@@ -138,10 +165,29 @@ namespace GamePloy
             OnRelease();
         }
 
-        protected abstract void OnCreateBaseLand();
+
+
+
+
+
+        #region 需要Override 方法
+
+        /// <summary>
+        /// 创建地表
+        /// </summary>
+        protected abstract void OnCreateLandSurface();
+        /// <summary>
+        /// 创建地形
+        /// </summary>
+        /// <param name="args"></param>
         protected abstract void OnCreateBuilding(object args = null);
+        /// <summary>
+        /// 释放
+        /// </summary>
         protected abstract void OnRelease();
-     
+
+        #endregion
+
     }
 }
 

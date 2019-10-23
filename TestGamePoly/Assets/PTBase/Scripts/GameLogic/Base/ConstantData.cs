@@ -35,7 +35,9 @@ namespace GamePloy
 
         #endregion
     }
-
+    /// <summary>
+    /// 地形类型
+    /// </summary>
     public enum LandType
     {
         Ground,

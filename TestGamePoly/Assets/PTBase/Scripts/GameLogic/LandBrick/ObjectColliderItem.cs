@@ -4,13 +4,13 @@ using GamePloy;
 
 public abstract class ObjectColliderItem : ObjectItem
 {
-    protected Collider2D m_cld;
-    public Collider2D cld
+    protected Collider m_cld;
+    public Collider cld
     {
         get
         {
             if (m_cld == null)
-                m_cld = GetComponent<Collider2D>();
+                m_cld = GetComponent<Collider>();
             return m_cld;
         }
     }

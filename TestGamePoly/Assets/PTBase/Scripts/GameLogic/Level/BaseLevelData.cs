@@ -11,8 +11,8 @@ namespace GamePloy
         protected GameObject objLandItem;
         protected GameObject objGroundItem;
         protected Transform objParent;
-        protected LandItem thisBornLandItem;
-        protected List<LandItem> m_landList;
+        protected LandSurfaceItem thisBornLandItem;
+        protected List<LandSurfaceItem> m_landList;
         protected int count;
         protected int countx;
         protected int county;

@@ -1628,16 +1628,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 599750255}
     m_Modifications:
-    - target: {fileID: 7801353176459465997, guid: 965a047b2d00c354ca90907bc29de817,
-        type: 3}
-      propertyPath: m_Name
-      value: UISelectLevel
-      objectReference: {fileID: 0}
-    - target: {fileID: 7801353176459465997, guid: 965a047b2d00c354ca90907bc29de817,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7801353176459465998, guid: 965a047b2d00c354ca90907bc29de817,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1743,6 +1733,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7801353176459465997, guid: 965a047b2d00c354ca90907bc29de817,
+        type: 3}
+      propertyPath: m_Name
+      value: UISelectLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 7801353176459465997, guid: 965a047b2d00c354ca90907bc29de817,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 965a047b2d00c354ca90907bc29de817, type: 3}
 --- !u!1001 &8776852436416541518
@@ -1752,16 +1752,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 599750255}
     m_Modifications:
-    - target: {fileID: 8776852436913936507, guid: 6f04160bffa81da4aa90bca0ba04b27d,
-        type: 3}
-      propertyPath: m_Name
-      value: UILoginPage
-      objectReference: {fileID: 0}
-    - target: {fileID: 8776852436913936507, guid: 6f04160bffa81da4aa90bca0ba04b27d,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8776852436913936504, guid: 6f04160bffa81da4aa90bca0ba04b27d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1866,6 +1856,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8776852436913936507, guid: 6f04160bffa81da4aa90bca0ba04b27d,
+        type: 3}
+      propertyPath: m_Name
+      value: UILoginPage
+      objectReference: {fileID: 0}
+    - target: {fileID: 8776852436913936507, guid: 6f04160bffa81da4aa90bca0ba04b27d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f04160bffa81da4aa90bca0ba04b27d, type: 3}

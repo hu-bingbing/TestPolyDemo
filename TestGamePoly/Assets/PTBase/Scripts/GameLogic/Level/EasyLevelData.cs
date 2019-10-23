@@ -7,8 +7,8 @@ namespace GamePloy
 {
     public class EasyLevelData : BaseLevelData
     {
-        private Dictionary<LandData, LandItem> m_landDic;
-        private Dictionary<Vector3, LandItem> m_landIndexDic;
+        private Dictionary<LandSurfaceData, LandSurfaceItem> m_landDic;
+        private Dictionary<Vector3, LandSurfaceItem> m_landIndexDic;
    
 
         protected override void OnCreate(Transform parent, object arg = null)
@@ -17,9 +17,9 @@ namespace GamePloy
             countx =24;
             county = 24;
             radius = 5.06f;
-            m_landDic = new Dictionary<LandData, LandItem>();
-            m_landIndexDic = new Dictionary<Vector3, LandItem>();
-            m_landList = new List<LandItem>();
+            m_landDic = new Dictionary<LandSurfaceData, LandSurfaceItem>();
+            m_landIndexDic = new Dictionary<Vector3, LandSurfaceItem>();
+            m_landList = new List<LandSurfaceItem>();
             objLandItem = Resources.Load<GameObject>(LandEntityPath.LandItemPath);
             SetLand(parent);
           
@@ -35,11 +35,11 @@ namespace GamePloy
                     float posy = y * radius * (float)Math.Sin(Math.PI / 3);
                     if (Math.Abs(posx) < count * radius && Math.Abs(posy) < count * radius)
                     {
-                        LandItem _landItem = UnityEngine.Object.Instantiate(objLandItem).GetComponent<LandItem>();
+                        LandSurfaceItem _landItem = UnityEngine.Object.Instantiate(objLandItem).GetComponent<LandSurfaceItem>();
                         int z = 0 - x - y;
-                        LandData _new = new LandData(new Vector3(posx, 0.5f, posy), x, y, z);
+                        LandSurfaceData _new = new LandSurfaceData(new Vector3(posx, 0.5f, posy), x, y, z);
 
-                        _landItem.Create(_new, parent, ShowFogBrick);
+                        _landItem.CreateSurface(_new, parent, ShowFogBrick);
                         m_landDic.Add(_new, _landItem);
                         m_landIndexDic.Add(new Vector3(x, y, z), _landItem);
                         m_landList.Add(_landItem);

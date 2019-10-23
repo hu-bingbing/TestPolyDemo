@@ -4,9 +4,12 @@ using UnityEngine;
 
 namespace GamePloy
 {
-    public class LandItem : BaseLandItem
+    /// <summary>
+    /// 地表砖块
+    /// </summary>
+    public class LandSurfaceItem : BaseLandItem
     {
-        protected override void OnCreateBaseLand()
+        protected override void OnCreateLandSurface()
         {
             this.gameObject.name = "x:" + m_landData.Index_X + "y:" + m_landData.Index_Y + " z:" + m_landData.Index_Z;
             if(m_landData.Index_X == 0 || m_landData.Index_Y == 0|| m_landData.Index_Z == 0)

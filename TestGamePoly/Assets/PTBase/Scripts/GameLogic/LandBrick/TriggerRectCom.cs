@@ -3,14 +3,14 @@ using System.Collections;
 using System;
 
 [AddComponentMenu("Battle/Trigger2D/Rect")]
-[RequireComponent(typeof(BoxCollider2D))]
+[RequireComponent(typeof(BoxCollider))]
 public class TriggerRectCom : TriggerColliderItem
 {
-    public BoxCollider2D rect
+    public BoxCollider rect
     {
         get
         {
-            return cld as BoxCollider2D;
+            return cld as BoxCollider;
         }
     }
 
@@ -43,7 +43,7 @@ public class TriggerRectCom : TriggerColliderItem
 
     public override void ResetSize()
     {
-        rect.offset = Vector2.zero;
+        rect.center = Vector3.zero;
         rect.size = m_sourceSize;
     }
 }

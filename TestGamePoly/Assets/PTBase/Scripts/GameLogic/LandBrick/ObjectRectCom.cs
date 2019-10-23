@@ -3,16 +3,16 @@ using System.Collections;
 using System;
 
 [AddComponentMenu("Battle/Object2D/rect")]
-[RequireComponent(typeof(BoxCollider2D))]
+[RequireComponent(typeof(BoxCollider))]
 public class ObjectRectCom : ObjectColliderItem
 {
-    public BoxCollider2D rect
+    public BoxCollider rect
     {
         get
         {
             if (m_cld == null)
-                m_cld = GetComponent<BoxCollider2D>();
-            return m_cld as BoxCollider2D;
+                m_cld = GetComponent<BoxCollider>();
+            return m_cld as BoxCollider;
         }
     }
 
@@ -33,7 +33,7 @@ public class ObjectRectCom : ObjectColliderItem
     public override void ResetSize()
     {
         rect.size = m_sourceSize;
-        rect.offset = Vector2.zero;
+        rect.center = Vector3.zero;
     }
     /// <summary>
     /// 碰撞检测
@@ -48,7 +48,7 @@ public class ObjectRectCom : ObjectColliderItem
             m_len = 0;
             return m_results;
         }
-        Vector3 pos = m_trans.position + new Vector3(rect.offset.x, rect.offset.y, 0);
+        Vector3 pos = m_trans.position + new Vector3(rect.center.x, rect.center.y, rect.center.z);
         m_len = Physics2D.BoxCastNonAlloc(pos, rect.size, 0, dir, m_results, distance, checkLayer);
         return m_results;
     }

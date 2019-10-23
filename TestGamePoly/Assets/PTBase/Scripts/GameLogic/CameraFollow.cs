@@ -7,8 +7,8 @@ public class CameraFollow : MonoBehaviour {
     public float upSpeed = 5;
     public float downSpeed = 4;
     public float posOffset = 0;
-    public float height = 30f;
-    public float distance = 10f;
+    public float height = 14f;
+    public float distance = 5f;
     public float rotation_x = 70f;
     public float rotation_y = 0f;
     public float rotation_z = 0;
