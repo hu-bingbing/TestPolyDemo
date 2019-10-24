@@ -91,7 +91,9 @@ namespace GamePloy
         {
             m_landType = _type;
         }
-
+        /// <summary>
+        /// 设置显示
+        /// </summary>
         public void SetHighlight()
         {
             var mesh = UtilityTool.GetChild(modelPoint.gameObject, "baseItem", true);
@@ -132,7 +134,7 @@ namespace GamePloy
             }
         }
         /// <summary>
-        /// 新建地形
+        /// 创建地形
         /// </summary>
         public void CreateLandFeature()
         {
