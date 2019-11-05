@@ -32,7 +32,7 @@
     "needPopulation": 4,
     "totalPopulation": 10,
     "effect01": 7,
-    "effect02": 0.0,
+    "effect02": -1,
     "130003": "130003"
   },
   "130004": {
@@ -41,7 +41,7 @@
     "needPopulation": 5,
     "totalPopulation": 15,
     "effect01": 7,
-    "effect02": 0.0,
+    "effect02": -1,
     "130004": "130004"
   },
   "130005": {
@@ -50,7 +50,7 @@
     "needPopulation": 6,
     "totalPopulation": 21,
     "effect01": 7,
-    "effect02": 0.0,
+    "effect02": -1,
     "130005": "130005"
   },
   "130006": {
@@ -59,7 +59,7 @@
     "needPopulation": 7,
     "totalPopulation": 28,
     "effect01": 7,
-    "effect02": 0.0,
+    "effect02": -1,
     "130006": "130006"
   },
   "130007": {
@@ -68,7 +68,7 @@
     "needPopulation": 8,
     "totalPopulation": 36,
     "effect01": 7,
-    "effect02": 0.0,
+    "effect02": -1,
     "130007": "130007"
   },
   "130008": {
@@ -77,7 +77,7 @@
     "needPopulation": 9,
     "totalPopulation": 45,
     "effect01": 7,
-    "effect02": 0.0,
+    "effect02": -1,
     "130008": "130008"
   },
   "130009": {
@@ -86,7 +86,7 @@
     "needPopulation": 10,
     "totalPopulation": 55,
     "effect01": 7,
-    "effect02": 0.0,
+    "effect02": -1,
     "130009": "130009"
   },
   "130010": {
@@ -95,7 +95,7 @@
     "needPopulation": 11,
     "totalPopulation": 66,
     "effect01": 7,
-    "effect02": 0.0,
+    "effect02": -1,
     "130010": "130010"
   }
 }

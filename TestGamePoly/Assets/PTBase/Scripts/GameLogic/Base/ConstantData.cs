@@ -139,6 +139,10 @@ namespace GamePloy
 
     public enum ConfigDataType
     {
+        ArchitectureData,
+        CityData,
+        ConstantData,
+        GoodsData,
         TerrainData,
 
     }
