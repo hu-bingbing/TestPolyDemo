@@ -20,7 +20,7 @@ namespace GamePloy
             m_landDic = new Dictionary<LandSurfaceData, LandSurfaceItem>();
             m_landIndexDic = new Dictionary<Vector3, LandSurfaceItem>();
             m_landList = new List<LandSurfaceItem>();
-            objLandItem = Resources.Load<GameObject>(LandEntityPath.LandItemPath);
+            objLandItem = Resources.Load<GameObject>(landTerrainData.TerrainAssetPath);
             SetLand(parent);
           
         }

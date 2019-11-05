@@ -1,4 +1,5 @@
 ﻿
+using GamePloyConfigData;
 using GamePoly.Hex;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,7 +10,10 @@ namespace GamePloy
     public abstract class BaseLevelMapData
     {
         protected GameObject objLandItem;
-        protected GameObject objGroundItem;
+        /// <summary>
+        /// 基础地板数据
+        /// </summary>
+        protected ConfigTerrainData landTerrainData;
         protected Transform objParent;
         protected LandSurfaceItem thisBornLandItem;
         protected List<LandSurfaceItem> m_landList;
@@ -21,6 +25,7 @@ namespace GamePloy
         public void Create(Transform parent,object arg = null)
         {
             objParent = parent;
+            landTerrainData = ConfigDataManager.Instance.TerrainDataByLandType[LandSurfaceType.Land];
             OnCreate(parent,arg);
             GenerateMap(countx, county);
             SetBornPos();

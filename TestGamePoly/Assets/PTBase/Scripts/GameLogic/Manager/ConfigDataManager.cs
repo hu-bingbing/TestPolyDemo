@@ -18,9 +18,14 @@ namespace GamePloy
         private StreamReader reader;
 
         private Dictionary<int, ConfigTerrainData> m_terrainDataDic;
+        private Dictionary<LandSurfaceType, ConfigTerrainData> m_terrainDataByLandType;
         public Dictionary<int, ConfigTerrainData> TerrainDataDic
         {
             get { return m_terrainDataDic; }
+        }
+        public Dictionary<LandSurfaceType, ConfigTerrainData> TerrainDataByLandType
+        {
+            get { return m_terrainDataByLandType; }
         }
 
 
@@ -37,6 +42,7 @@ namespace GamePloy
             configPaths = new Dictionary<byte, string>
             {
                    { (byte)ConfigDataType.TerrainData,"TerrainData"},
+                   { (byte)ConfigDataType.ArchitectureData,"ArchitectureData"},
 
 
             };
@@ -100,6 +106,7 @@ namespace GamePloy
             foreach(var value in tempTerrainDic.Values)
             {
                 m_terrainDataDic.Add(value.Id, value);
+                m_terrainDataByLandType.Add(value.SurfaceType, value);
             }
             Debug.Log("m_terrainDic:" + m_terrainDataDic.Count);
         }
@@ -107,6 +114,7 @@ namespace GamePloy
         private void InitConfigDataDic()
         {
             m_terrainDataDic = new Dictionary<int, ConfigTerrainData>();
+            m_terrainDataByLandType = new Dictionary<LandSurfaceType, ConfigTerrainData>();
 
         }
 

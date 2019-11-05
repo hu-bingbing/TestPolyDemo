@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GamePloyConfigData;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -36,6 +37,13 @@ namespace GamePloy
         {
             get { return m_landType; }
         }
+
+        protected ConfigTerrainData m_terrainData;
+        public ConfigTerrainData thisTerrainData
+        {
+            get { return m_terrainData; }
+        }
+
 
         protected LandSurfaceData m_landData;
         public LandSurfaceData thisLandData
@@ -90,6 +98,7 @@ namespace GamePloy
         public void SetLandType(LandSurfaceType _type)
         {
             m_landType = _type;
+            m_terrainData = ConfigDataManager.Instance.TerrainDataByLandType[m_landType];
         }
         /// <summary>
         /// 设置显示
@@ -138,7 +147,7 @@ namespace GamePloy
         /// </summary>
         public void CreateLandFeature()
         {
-            m_objItem = Instantiate(Resources.Load<GameObject>(ConstantData.LandItemPathByTypeDic[thisLandFeatureType]));
+            m_objItem = Instantiate(Resources.Load<GameObject>(m_terrainData.TerrainAssetPath));
 
             ObjectUtil.Attach(m_objItem.transform, modelPoint);
             //ObjectUtil.Attach(this.transform, parent);

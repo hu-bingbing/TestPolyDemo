@@ -10,27 +10,8 @@ namespace GamePloy
         public static string EntityRoot = "EntityRoot";
         public static string LandRoot = "LandRoot";
         public static string CameraRoot = "EntityCameraRoot";
-
-        public static Dictionary<LandSurfaceType, string> LandItemPathByTypeDic = new Dictionary<LandSurfaceType, string>()
-        {
-              {LandSurfaceType.Ground,LandEntityPath.GrandItemPath},
-              {LandSurfaceType.Water,LandEntityPath.WaterItemPath},
-              {LandSurfaceType.WaterLight,LandEntityPath.WaterLightItemPath},
-              {LandSurfaceType.WaterDeep,LandEntityPath.WaterDeepItemPath},
-
-
-        };
-
-        public static Dictionary<LandFeatureType, string> LandFeaturePathDic = new Dictionary<LandFeatureType, string>()
-        {
-              {LandFeatureType.BornPoint,BuildingDef.BornArchitecture01},
-             
-
-
-        };
-
-
-
+        
+     
         #region UIDef
 
         public static string UICamera = "UICamera";
@@ -38,7 +19,8 @@ namespace GamePloy
         public static string UIWindowLayer = "WindowLayer";
         public static string UIModelLayer = "ModelLayer";
         public static string UITopLayer = "TopLayer";
-
+    
+       
 
         #endregion
     }
@@ -47,10 +29,15 @@ namespace GamePloy
     /// </summary>
     public enum LandSurfaceType
     {
-        Ground,
+        Land = 0,
+        WaterDeep,
         Water,
         WaterLight,
-        WaterDeep,
+        Ground,
+        CropGround,   //沃土
+        Forest = 6,   //森林
+        Hill = 7,     //高山
+        Mine = 8,     //矿山
 
     }
     /// <summary>
@@ -60,42 +47,6 @@ namespace GamePloy
     {
 
         BornPoint,
-    }
-
-    public class LandEntityPath
-    {
-        /// <summary>
-        /// 平地
-        /// </summary>
-        public static string LandItemPath = "EntityPrefabs/LandItem";
-        
-        /// <summary>
-        /// 草地
-        /// </summary>
-        public static string GrandItemPath = "EntityPrefabs/GrandItem";
-        /// <summary>
-        /// 森林
-        /// </summary>
-        public static string ForestItemPath = "EntityPrefabs/ForestItem";
-        /// <summary>
-        /// 小山
-        /// </summary>
-        public static string HillItemPath = "EntityPrefabs/HillItem06";
-
-        /// <summary>
-        /// 浅水
-        /// </summary>
-        public static string WaterLightItemPath = "EntityPrefabs/WaterLightItem";
-        /// <summary>
-        /// 一般的海
-        /// </summary>
-        public static string WaterItemPath = "EntityPrefabs/WaterItem";
-        /// <summary>
-        /// 深海
-        /// </summary>
-        public static string WaterDeepItemPath = "EntityPrefabs/WaterDeepItem";
-
-
     }
 
     public static class BuildingDef
@@ -109,6 +60,8 @@ namespace GamePloy
         public static string UILogin = "Page/UILoginPage";
         public static string UISelectLevel = "Page/UISelectLevel";
         public static string UIGame = "Page/UIGamePage";
+
+        public static string TerrianPath = "EntityPrefabs/";
 
     }
 
