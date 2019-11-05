@@ -1,0 +1,122 @@
+{
+  "110000": {
+    "id": 110000,
+    "name": "码头",
+    "terrainId": 100002,
+    "nearBuilding": 0.0,
+    "goldCost": 10,
+    "actionType": 1,
+    "actionEffect": 2,
+    "assetName": "",
+    "Column8": "",
+    "110000": "110000"
+  },
+  "110001": {
+    "id": 110001,
+    "name": "集市",
+    "terrainId": 0.0,
+    "nearBuilding": 110000,
+    "goldCost": 5,
+    "actionType": 4,
+    "actionEffect": 1,
+    "assetName": "",
+    "Column8": "",
+    "110001": "110001"
+  },
+  "110002": {
+    "id": 110002,
+    "name": "农田",
+    "terrainId": 100004,
+    "nearBuilding": 0.0,
+    "goldCost": 5,
+    "actionType": 1,
+    "actionEffect": 2,
+    "assetName": "",
+    "Column8": "",
+    "110002": "110002"
+  },
+  "110003": {
+    "id": 110003,
+    "name": "谷仓",
+    "terrainId": 0.0,
+    "nearBuilding": 110002,
+    "goldCost": 5,
+    "actionType": 2,
+    "actionEffect": 1,
+    "assetName": "",
+    "Column8": "",
+    "110003": "110003"
+  },
+  "110004": {
+    "id": 110004,
+    "name": "伐木场",
+    "terrainId": 100005,
+    "nearBuilding": 0.0,
+    "goldCost": 2,
+    "actionType": 1,
+    "actionEffect": 1,
+    "assetName": "",
+    "Column8": "",
+    "110004": "110004"
+  },
+  "110005": {
+    "id": 110005,
+    "name": "木材厂",
+    "terrainId": 0.0,
+    "nearBuilding": 110004,
+    "goldCost": 5,
+    "actionType": 2,
+    "actionEffect": 1,
+    "assetName": "",
+    "Column8": "",
+    "110005": "110005"
+  },
+  "110006": {
+    "id": 110006,
+    "name": "矿场",
+    "terrainId": 100007,
+    "nearBuilding": 0.0,
+    "goldCost": 5,
+    "actionType": 1,
+    "actionEffect": 2,
+    "assetName": "",
+    "Column8": "",
+    "110006": "110006"
+  },
+  "110007": {
+    "id": 110007,
+    "name": "锻造厂",
+    "terrainId": 0.0,
+    "nearBuilding": 110007,
+    "goldCost": 5,
+    "actionType": 2,
+    "actionEffect": 2,
+    "assetName": "",
+    "Column8": "",
+    "110007": "110007"
+  },
+  "110008": {
+    "id": 110008,
+    "name": "深海神庙",
+    "terrainId": 100000,
+    "nearBuilding": 0.0,
+    "goldCost": 20,
+    "actionType": 1,
+    "actionEffect": 1,
+    "assetName": "",
+    "Column8": "",
+    "110008": "110008"
+  },
+  "110009": {
+    "id": 110009,
+    "name": "高山神庙",
+    "terrainId": 0.0,
+    "nearBuilding": 0.0,
+    "goldCost": 20,
+    "actionType": 1,
+    "actionEffect": 1,
+    "assetName": "",
+    "Column8": "",
+    "110009": "110009"
+  }
+}

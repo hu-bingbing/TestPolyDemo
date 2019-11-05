@@ -1,0 +1,101 @@
+{
+  "130000": {
+    "id": 130000,
+    "lv": 1,
+    "needPopulation": 1,
+    "totalPopulation": 1,
+    "effect01": 1,
+    "effect02": 2,
+    "130000": "130000"
+  },
+  "130001": {
+    "id": 130001,
+    "lv": 2,
+    "needPopulation": 2,
+    "totalPopulation": 3,
+    "effect01": 3,
+    "effect02": 4,
+    "130001": "130001"
+  },
+  "130002": {
+    "id": 130002,
+    "lv": 3,
+    "needPopulation": 3,
+    "totalPopulation": 6,
+    "effect01": 5,
+    "effect02": 6,
+    "130002": "130002"
+  },
+  "130003": {
+    "id": 130003,
+    "lv": 4,
+    "needPopulation": 4,
+    "totalPopulation": 10,
+    "effect01": 7,
+    "effect02": 0.0,
+    "130003": "130003"
+  },
+  "130004": {
+    "id": 130004,
+    "lv": 5,
+    "needPopulation": 5,
+    "totalPopulation": 15,
+    "effect01": 7,
+    "effect02": 0.0,
+    "130004": "130004"
+  },
+  "130005": {
+    "id": 130005,
+    "lv": 6,
+    "needPopulation": 6,
+    "totalPopulation": 21,
+    "effect01": 7,
+    "effect02": 0.0,
+    "130005": "130005"
+  },
+  "130006": {
+    "id": 130006,
+    "lv": 7,
+    "needPopulation": 7,
+    "totalPopulation": 28,
+    "effect01": 7,
+    "effect02": 0.0,
+    "130006": "130006"
+  },
+  "130007": {
+    "id": 130007,
+    "lv": 8,
+    "needPopulation": 8,
+    "totalPopulation": 36,
+    "effect01": 7,
+    "effect02": 0.0,
+    "130007": "130007"
+  },
+  "130008": {
+    "id": 130008,
+    "lv": 9,
+    "needPopulation": 9,
+    "totalPopulation": 45,
+    "effect01": 7,
+    "effect02": 0.0,
+    "130008": "130008"
+  },
+  "130009": {
+    "id": 130009,
+    "lv": 10,
+    "needPopulation": 10,
+    "totalPopulation": 55,
+    "effect01": 7,
+    "effect02": 0.0,
+    "130009": "130009"
+  },
+  "130010": {
+    "id": 130010,
+    "lv": 11,
+    "needPopulation": 11,
+    "totalPopulation": 66,
+    "effect01": 7,
+    "effect02": 0.0,
+    "130010": "130010"
+  }
+}

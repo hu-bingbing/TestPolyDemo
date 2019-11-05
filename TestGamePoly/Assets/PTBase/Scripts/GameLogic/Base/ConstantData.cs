@@ -136,4 +136,10 @@ namespace GamePloy
         public const int MoveY = 12;
         public const int Tap = 20;
     }
+
+    public enum ConfigDataType
+    {
+        TerrainData,
+
+    }
 }

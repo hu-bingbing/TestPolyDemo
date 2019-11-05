@@ -52,5 +52,23 @@
     "assetName": "ForestItem",
     "quality": "",
     "100005": "100005"
+  },
+  "100006": {
+    "id": 100006,
+    "desc": "高山",
+    "height": 0.0,
+    "moveSpend": 0.0,
+    "assetName": "",
+    "quality": "",
+    "100006": "100006"
+  },
+  "100007": {
+    "id": 100007,
+    "desc": "矿山",
+    "height": 0.0,
+    "moveSpend": 0.0,
+    "assetName": "",
+    "quality": "",
+    "100007": "100007"
   }
 }

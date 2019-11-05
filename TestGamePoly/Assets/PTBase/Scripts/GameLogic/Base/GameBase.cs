@@ -7,6 +7,7 @@ namespace GamePloy
     public class GameBase : MonoBehaviour
     {
         public bool reporterDebug = true;
+        public bool isLocal = true;
 
         void Awake()
         {

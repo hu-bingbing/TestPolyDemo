@@ -32,10 +32,12 @@ namespace GamePloy
             Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
             GameManager.Instance.Initialize();
+            ConfigDataManager.Instance.Initialize();
             LevelManager.Instance.Initialize();
             GestureManager.Instance.Initialize();
             UIManager.Instance.Initialize("UI/");
             ModuleManager.Instance.Initialize();
+
         }
 
         protected override void OnAppCreate()

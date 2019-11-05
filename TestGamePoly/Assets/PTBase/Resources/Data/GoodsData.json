@@ -1,0 +1,112 @@
+{
+  "120000": {
+    "id": 120000,
+    "name": "动物",
+    "height": 2,
+    "assetName": "",
+    "rewardType": 1,
+    "rewardNum": 1,
+    "Column6": "",
+    "120000": "120000"
+  },
+  "120001": {
+    "id": 120001,
+    "name": "植物",
+    "height": 2,
+    "assetName": "",
+    "rewardType": 1,
+    "rewardNum": 1,
+    "Column6": "",
+    "120001": "120001"
+  },
+  "120002": {
+    "id": 120002,
+    "name": "鱼",
+    "height": 1,
+    "assetName": "",
+    "rewardType": 1,
+    "rewardNum": 1,
+    "Column6": "",
+    "120002": "120002"
+  },
+  "120003": {
+    "id": 120003,
+    "name": "鲸鱼",
+    "height": 0,
+    "assetName": "",
+    "rewardType": 2,
+    "rewardNum": 10,
+    "Column6": "",
+    "120003": "120003"
+  },
+  "120004": {
+    "id": 120004,
+    "name": "",
+    "height": 0.0,
+    "assetName": "",
+    "rewardType": 0.0,
+    "rewardNum": 0.0,
+    "Column6": "",
+    "120004": "120004"
+  },
+  "120005": {
+    "id": 120005,
+    "name": "",
+    "height": 0.0,
+    "assetName": "",
+    "rewardType": 0.0,
+    "rewardNum": 0.0,
+    "Column6": "",
+    "120005": "120005"
+  },
+  "120006": {
+    "id": 120006,
+    "name": "",
+    "height": 0.0,
+    "assetName": "",
+    "rewardType": 0.0,
+    "rewardNum": 0.0,
+    "Column6": "",
+    "120006": "120006"
+  },
+  "120007": {
+    "id": 120007,
+    "name": "",
+    "height": 0.0,
+    "assetName": "",
+    "rewardType": 0.0,
+    "rewardNum": 0.0,
+    "Column6": "",
+    "120007": "120007"
+  },
+  "120008": {
+    "id": 120008,
+    "name": "",
+    "height": 0.0,
+    "assetName": "",
+    "rewardType": 0.0,
+    "rewardNum": 0.0,
+    "Column6": "",
+    "120008": "120008"
+  },
+  "120009": {
+    "id": 120009,
+    "name": "",
+    "height": 0.0,
+    "assetName": "",
+    "rewardType": 0.0,
+    "rewardNum": 0.0,
+    "Column6": "",
+    "120009": "120009"
+  },
+  "120010": {
+    "id": 120010,
+    "name": "",
+    "height": 0.0,
+    "assetName": "",
+    "rewardType": 0.0,
+    "rewardNum": 0.0,
+    "Column6": "",
+    "120010": "120010"
+  }
+}
