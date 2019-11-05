@@ -18,15 +18,23 @@ namespace GamePloy
         private StreamReader reader;
 
         private Dictionary<int, ConfigTerrainData> m_terrainDataDic;
-        private Dictionary<LandSurfaceType, ConfigTerrainData> m_terrainDataByLandType;
         public Dictionary<int, ConfigTerrainData> TerrainDataDic
         {
             get { return m_terrainDataDic; }
         }
+
+        private Dictionary<LandSurfaceType, ConfigTerrainData> m_terrainDataByLandType;
         public Dictionary<LandSurfaceType, ConfigTerrainData> TerrainDataByLandType
         {
             get { return m_terrainDataByLandType; }
         }
+
+        private Dictionary<LandFeatureType, ConfigArchitectureData> m_architectureDataByFeatureType;
+        public Dictionary<LandFeatureType, ConfigArchitectureData> ArchitectureDataByFeatureType
+        {
+            get { return m_architectureDataByFeatureType; }
+        }
+
 
 
         public int interval
@@ -109,13 +117,23 @@ namespace GamePloy
                 m_terrainDataByLandType.Add(value.SurfaceType, value);
             }
             Debug.Log("m_terrainDic:" + m_terrainDataDic.Count);
+
+            var tempArchitectureDic = GetDic<ConfigArchitectureData>(ConfigDataType.ArchitectureData);
+            foreach(var value in tempArchitectureDic.Values)
+            {
+                if(value.FeatureType != LandFeatureType.None)
+                {
+                    m_architectureDataByFeatureType.Add(value.FeatureType, value);
+                }
+            }
+           
         }
 
         private void InitConfigDataDic()
         {
             m_terrainDataDic = new Dictionary<int, ConfigTerrainData>();
             m_terrainDataByLandType = new Dictionary<LandSurfaceType, ConfigTerrainData>();
-
+            m_architectureDataByFeatureType = new Dictionary<LandFeatureType, ConfigArchitectureData>();
         }
 
         /// <summary>

@@ -122,7 +122,7 @@ namespace GamePloy
             //int _randomIndex = UnityEngine.Random.Range(0, m_landList.Count);
             //Debug.Log("_randomIndex" + _randomIndex);
             //thisBornLandItem = m_landList[_randomIndex];
-            thisBornLandItem.CreateBuilding(BuildingDef.BornArchitecture01);
+            thisBornLandItem.CreateBuilding(bornBuildingData);
             LevelManager.Instance.SetCameraTarget(thisBornLandItem.transform);
         }
 

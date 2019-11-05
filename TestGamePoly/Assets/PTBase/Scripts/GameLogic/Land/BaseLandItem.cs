@@ -44,7 +44,12 @@ namespace GamePloy
             get { return m_terrainData; }
         }
 
-
+        protected ConfigArchitectureData m_architectureData;
+        public ConfigArchitectureData thisArchitectureData
+        {
+            get { return m_architectureData; }
+        }
+        
         protected LandSurfaceData m_landData;
         public LandSurfaceData thisLandData
         {
@@ -126,6 +131,10 @@ namespace GamePloy
         public void RayThisLand()
         {
             Debug.Log("type:" + m_landType);
+            if(m_architectureData != null)
+            {
+                Debug.Log("featureType:" + m_architectureData.FeatureType);
+            }
         }
 
 
@@ -157,8 +166,9 @@ namespace GamePloy
         public void CreateBuilding(object args = null)
         {
             Debug.Log("CreateBuilding:" + args);
+            m_architectureData = (ConfigArchitectureData)args;
             Debug.LogWarning(m_landData.Index_X + "y:" + m_landData.Index_Y);
-            OnCreateBuilding(args);
+            OnCreateBuilding(m_architectureData.ArchitectureAssetPath);
             SetNeighbor(2);
         }
 

@@ -45,23 +45,26 @@ namespace GamePloy
     /// </summary>
     public enum LandFeatureType
     {
+        BornPoint = 0,   //初始台地
 
-        BornPoint,
+
+        None,
     }
-
-    public static class BuildingDef
-    {
-        public static string BornArchitecture01 = "Buildings/MidPoint";
-       
-    }
-
+    
     public static class UIDef
     {
         public static string UILogin = "Page/UILoginPage";
         public static string UISelectLevel = "Page/UISelectLevel";
         public static string UIGame = "Page/UIGamePage";
 
+        /// <summary>
+        /// 地形路径
+        /// </summary>
         public static string TerrianPath = "EntityPrefabs/";
+        /// <summary>
+        /// 建筑路径
+        /// </summary>
+        public static string ArchitectureDataPath = "Buildings/";
 
     }
 

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using GamePloy;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,6 +12,8 @@ namespace GamePloyConfigData
         public int TerrainId;
         public int NearBuildingId;
         public int GoldCost;
+        private int m_featureIndex;
+        public LandFeatureType FeatureType;
         /// <summary>
         /// 作用类型:
         ///1：直接增加人口
@@ -20,7 +23,8 @@ namespace GamePloyConfigData
         /// </summary>
         public int ActionType;
         public int ActionEffect;
-        public string AssetName;
+        private string m_assetName;
+        public string ArchitectureAssetPath;
 
         protected override void OnLoad(object obj)
         {
@@ -30,9 +34,20 @@ namespace GamePloyConfigData
             TerrainId = int.Parse(dic["terrainId"].ToString());
             NearBuildingId = int.Parse(dic["nearBuilding"].ToString());
             GoldCost = int.Parse(dic["goldCost"].ToString());
+            m_featureIndex = int.Parse(dic["landFeatureType"].ToString());
+            if(m_featureIndex >= 0)
+            {
+                FeatureType = (LandFeatureType)m_featureIndex;
+            }
+            else
+            {
+                FeatureType = LandFeatureType.None;
+            }
+
             ActionType = int.Parse(dic["actionType"].ToString());
             ActionEffect = int.Parse(dic["actionEffect"].ToString());
-            AssetName = dic["assetName"].ToString();
+            m_assetName = dic["assetName"].ToString();
+            ArchitectureAssetPath = UIDef.ArchitectureDataPath + m_assetName;
         }
 
     }
