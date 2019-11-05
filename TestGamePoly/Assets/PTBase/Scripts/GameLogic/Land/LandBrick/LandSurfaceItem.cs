@@ -5,7 +5,7 @@ using UnityEngine;
 namespace GamePloy
 {
     /// <summary>
-    /// 地表砖块
+    /// 地表
     /// </summary>
     public class LandSurfaceItem : BaseLandItem
     {

@@ -58,16 +58,30 @@ namespace GamePloy
     /// </summary>
     public enum LandFeatureType
     {
+
         BornPoint,
     }
 
     public class LandEntityPath
     {
-        public static string LandItemPath = "EntityPrefabs/LandItem";
         /// <summary>
         /// 平地
         /// </summary>
+        public static string LandItemPath = "EntityPrefabs/LandItem";
+        
+        /// <summary>
+        /// 草地
+        /// </summary>
         public static string GrandItemPath = "EntityPrefabs/GrandItem";
+        /// <summary>
+        /// 森林
+        /// </summary>
+        public static string ForestItemPath = "EntityPrefabs/ForestItem";
+        /// <summary>
+        /// 小山
+        /// </summary>
+        public static string HillItemPath = "EntityPrefabs/HillItem06";
+
         /// <summary>
         /// 浅水
         /// </summary>
