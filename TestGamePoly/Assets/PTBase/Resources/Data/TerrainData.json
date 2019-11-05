@@ -1,0 +1,56 @@
+{
+  "100000": {
+    "id": 100000,
+    "desc": "深海",
+    "height": 0,
+    "moveSpend": 1,
+    "assetName": "WaterDeepItem",
+    "quality": "",
+    "100000": "100000"
+  },
+  "100001": {
+    "id": 100001,
+    "desc": "海",
+    "height": 0,
+    "moveSpend": 1,
+    "assetName": "WaterItem",
+    "quality": "",
+    "100001": "100001"
+  },
+  "100002": {
+    "id": 100002,
+    "desc": "浅海",
+    "height": 1,
+    "moveSpend": 1,
+    "assetName": "WaterLightItem",
+    "quality": "",
+    "100002": "100002"
+  },
+  "100003": {
+    "id": 100003,
+    "desc": "平原",
+    "height": 2,
+    "moveSpend": 1,
+    "assetName": "GrandItem",
+    "quality": "",
+    "100003": "100003"
+  },
+  "100004": {
+    "id": 100004,
+    "desc": "沃土",
+    "height": 2,
+    "moveSpend": 1,
+    "assetName": "GrandItem",
+    "quality": "",
+    "100004": "100004"
+  },
+  "100005": {
+    "id": 100005,
+    "desc": "森林",
+    "height": 2,
+    "moveSpend": 1,
+    "assetName": "ForestItem",
+    "quality": "",
+    "100005": "100005"
+  }
+}
