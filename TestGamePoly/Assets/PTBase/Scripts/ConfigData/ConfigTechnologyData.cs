@@ -4,6 +4,13 @@ using UnityEngine;
 
 namespace GamePloyConfigData
 {
+    public class TechnologyEffectData
+    {
+        public int EffectId;
+        public int ResultNum;
+
+    }
+
     public class ConfigTechnologyData : BaseConfigData
     {
         public int Id;

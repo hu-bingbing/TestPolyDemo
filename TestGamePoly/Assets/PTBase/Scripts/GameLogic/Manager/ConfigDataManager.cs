@@ -156,6 +156,10 @@ namespace GamePloy
             foreach(var value in tempTechDic.Values)
             {
                 m_technologyDic.Add(value.Id, value);
+                if(value.TechnologyLv == 0)
+                {
+                    TechnologyManager.Instance.SetBornTechnology(value);
+                }
             }
 
             var tempArchitectureDic = GetDic<ConfigArchitectureData>(ConfigDataType.ArchitectureData);

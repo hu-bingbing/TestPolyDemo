@@ -19,16 +19,27 @@ namespace GamePloy
             get { return m_bornTechnology; }
         }
 
-
-        public void Initialize(object args = null)
+        private Dictionary<int, List<int>> m_technologyEffect;
+        public Dictionary<int, List<int>> TechnologyEffectDic
         {
-            
+            get { return m_technologyEffect; }
         }
 
 
-        public void InitBornTechnology(ConfigTechnologyData _tempData)
+        public void Initialize(object args = null)
+        {
+            m_technologyEffect = new Dictionary<int, List<int>>();
+        }
+
+
+        public void SetBornTechnology(ConfigTechnologyData _tempData)
         {
             m_bornTechnology = _tempData;
+        }
+
+        public void AddToTechnologyDic(ConfigTechnologyData _tempData)
+        {
+
         }
 
         public void ToUpdate()
