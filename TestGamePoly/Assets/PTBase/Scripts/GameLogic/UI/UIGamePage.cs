@@ -17,7 +17,8 @@ public class UIGamePage : UIPolyPage
 
     protected override void OnClose(object arg = null)
     {
-       
+        Debug.Log("closeGamePage----");
+        ModuleManager.Instance.GetModule(ModuleDef.GameModule).Release();
     }
 
 }

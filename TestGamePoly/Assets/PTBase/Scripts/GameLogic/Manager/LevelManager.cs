@@ -58,7 +58,7 @@ namespace GamePloy
             //SetCameraTarget(m_landRoot);
             #endregion
         }
-
+        
         public void CreateLevelData(LevelType _type, Transform parent, object arg = null)
         {
             if (_type == LevelType.EASY)
@@ -108,6 +108,12 @@ namespace GamePloy
                 var temp = hit.transform.GetComponent<BaseLandItem>();
                 temp.RayThisLand();
             }
+        }
+
+        public void ReleaseMap()
+        {
+            m_currentLevelData.Release();
+            m_currentLevelData = null;
         }
 
     }

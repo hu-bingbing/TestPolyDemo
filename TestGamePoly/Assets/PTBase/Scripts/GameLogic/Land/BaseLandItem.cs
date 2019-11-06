@@ -56,10 +56,10 @@ namespace GamePloy
             get { return m_landData; }
         }
 
-        protected GameObject m_objItem;
-        public GameObject thisLandObj
+        protected GameObject m_objTerrainItem;
+        public GameObject thisLandTerrainObj
         {
-            get { return m_objItem; }
+            get { return m_objTerrainItem; }
         }
 
         protected List<Vector3> m_neighborIndexList;
@@ -156,9 +156,9 @@ namespace GamePloy
         /// </summary>
         public void CreateLandFeature()
         {
-            m_objItem = Instantiate(Resources.Load<GameObject>(m_terrainData.TerrainAssetPath));
+            m_objTerrainItem = Instantiate(Resources.Load<GameObject>(m_terrainData.TerrainAssetPath));
 
-            ObjectUtil.Attach(m_objItem.transform, modelPoint);
+            ObjectUtil.Attach(m_objTerrainItem.transform, modelPoint);
             //ObjectUtil.Attach(this.transform, parent);
 
         }

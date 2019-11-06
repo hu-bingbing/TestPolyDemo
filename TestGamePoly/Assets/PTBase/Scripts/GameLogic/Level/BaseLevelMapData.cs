@@ -52,11 +52,18 @@ namespace GamePloy
             OnSetBornPos();
         }
 
+        public void Release()
+        {
+            OnRelease();
+        }
+
         #region 外部override
 
         protected abstract void OnCreate(Transform parent, object arg = null);
 
         protected abstract void OnSetBornPos();
+
+        protected abstract void OnRelease();
         #endregion
     }
     

@@ -26,7 +26,11 @@ namespace GamePloy
 
         protected override void OnRelease()
         {
-           
+            DestroyImmediate(m_objTerrainItem);
+            m_terrainData = null;
+            m_architectureData = null;
+            m_landData = null;
+            DestroyImmediate(this.gameObject);
         }
     }
 }

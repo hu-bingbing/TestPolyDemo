@@ -18,7 +18,12 @@ namespace GamePloy.Modules
             LevelManager.Instance.LoadLevelEntity(LevelType.EASY);
             UIManager.Instance.OpenPage(UIDef.UIGame);
         }
-        
+
+        public override void Release()
+        {
+            LevelManager.Instance.ReleaseMap();
+
+        }
     }
 }
 

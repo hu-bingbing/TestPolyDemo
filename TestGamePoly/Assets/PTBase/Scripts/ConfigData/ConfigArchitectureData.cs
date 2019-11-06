@@ -47,7 +47,7 @@ namespace GamePloyConfigData
             ActionType = int.Parse(dic["actionType"].ToString());
             ActionEffect = int.Parse(dic["actionEffect"].ToString());
             m_assetName = dic["assetName"].ToString();
-            ArchitectureAssetPath = UIDef.ArchitectureDataPath + m_assetName;
+            ArchitectureAssetPath = UIDef.ArchitecturePrefabsPath + m_assetName;
         }
 
     }

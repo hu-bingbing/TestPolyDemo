@@ -2,8 +2,8 @@
   "100000": {
     "id": 100000,
     "desc": "基础地形",
-    "height": -1,
-    "moveSpend": -1,
+    "height": 0,
+    "moveSpend": 0,
     "assetName": "LandItem",
     "landSurfaceType": 0,
     "100000": "100000"
@@ -12,7 +12,7 @@
     "id": 100001,
     "desc": "深海",
     "height": 0,
-    "moveSpend": 1,
+    "moveSpend": -3,
     "assetName": "WaterDeepItem",
     "landSurfaceType": 1,
     "100001": "100001"
@@ -21,7 +21,7 @@
     "id": 100002,
     "desc": "海",
     "height": 0,
-    "moveSpend": 1,
+    "moveSpend": -2,
     "assetName": "WaterItem",
     "landSurfaceType": 2,
     "100002": "100002"
@@ -30,7 +30,7 @@
     "id": 100003,
     "desc": "浅海",
     "height": 1,
-    "moveSpend": 1,
+    "moveSpend": 0,
     "assetName": "WaterLightItem",
     "landSurfaceType": 3,
     "100003": "100003"

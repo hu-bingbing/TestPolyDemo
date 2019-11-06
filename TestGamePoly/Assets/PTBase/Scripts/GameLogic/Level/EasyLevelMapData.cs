@@ -126,7 +126,15 @@ namespace GamePloy
             LevelManager.Instance.SetCameraTarget(thisBornLandItem.transform);
         }
 
-
+        protected override void OnRelease()
+        {
+            foreach(var value in m_landDic.Values)
+            {
+                value.Release();
+            }
+            m_landDic = null;
+            m_landIndexDic = null;
+        }
     }
 }
 

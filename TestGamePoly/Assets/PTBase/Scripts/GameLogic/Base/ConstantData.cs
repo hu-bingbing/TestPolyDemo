@@ -24,6 +24,7 @@ namespace GamePloy
 
         #endregion
     }
+
     /// <summary>
     /// 地表类型
     /// </summary>
@@ -39,6 +40,8 @@ namespace GamePloy
         Hill = 7,     //高山
         Mine = 8,     //矿山
 
+
+
     }
     /// <summary>
     /// 建筑类型
@@ -48,9 +51,30 @@ namespace GamePloy
         BornPoint = 0,   //初始台地
 
 
+
         None,
     }
-    
+
+    public enum ArmyType
+    {
+        OneSoldier = 0,
+        Warrior = 1,           //勇士
+        ShieldMan = 2,         //盾士
+        SwordsMan = 3,         //剑士
+        EliteSoldier = 4,      //精英战士
+        Archer = 5,            //弓箭手
+        QuickScout = 6,        //迅捷斥候
+        knight = 7,            //骑士
+        Attacker = 8,          //攻击
+        Priests = 9,           //祭司
+        Boat = 10,             //小船
+        MediumShip = 11,       //中船
+        GunBoat = 12,          //炮船
+        StoneCatapult = 13,    //投石机
+
+    }
+
+
     public static class UIDef
     {
         public static string UILogin = "Page/UILoginPage";
@@ -64,7 +88,11 @@ namespace GamePloy
         /// <summary>
         /// 建筑路径
         /// </summary>
-        public static string ArchitectureDataPath = "Buildings/";
+        public static string ArchitecturePrefabsPath = "Buildings/";
+        /// <summary>
+        /// 士兵预制路径
+        /// </summary>
+        public static string ArmyPrefabsPath = "ArmPrefabs/";
 
     }
 
