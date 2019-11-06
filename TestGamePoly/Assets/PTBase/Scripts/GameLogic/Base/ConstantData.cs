@@ -103,6 +103,7 @@ namespace GamePloy
 
         public const string LoginModule = "LoginModule";
         public const string GameModule = "GameModule";
+        public const string ConfigConstantMethodModule = "ConfigConstantMethodModule";
 
         public const string SettingModule = "SettingModule";
         public const string ActivityModule = "ActivityModule";
@@ -128,6 +129,7 @@ namespace GamePloy
         ConstantData,
         GoodsData,
         TerrainData,
+        TechnologyData,
 
     }
 }

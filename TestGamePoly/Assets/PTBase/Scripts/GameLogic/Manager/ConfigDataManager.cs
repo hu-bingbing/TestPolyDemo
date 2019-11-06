@@ -17,17 +17,22 @@ namespace GamePloy
         private string path;
         private StreamReader reader;
 
-        private Dictionary<int, ConfigTerrainData> m_terrainDataDic;
-        public Dictionary<int, ConfigTerrainData> TerrainDataDic
+
+        #region 本地配置表数据
+
+
+        private Dictionary<int, ConfigConstantData> m_constantDataDic;
+        public Dictionary<int, ConfigConstantData> ConstantDataDic
         {
-            get { return m_terrainDataDic; }
+            get { return m_constantDataDic; }
         }
 
-        private Dictionary<LandSurfaceType, ConfigTerrainData> m_terrainDataByLandType;
-        public Dictionary<LandSurfaceType, ConfigTerrainData> TerrainDataByLandType
+        private Dictionary<int, ConfigTechnologyData> m_technologyDic;
+        public Dictionary<int, ConfigTechnologyData> TechnologyDic
         {
-            get { return m_terrainDataByLandType; }
+            get { return m_technologyDic; }
         }
+
 
         private Dictionary<LandFeatureType, ConfigArchitectureData> m_architectureDataByFeatureType;
         public Dictionary<LandFeatureType, ConfigArchitectureData> ArchitectureDataByFeatureType
@@ -36,6 +41,20 @@ namespace GamePloy
         }
 
 
+
+        private Dictionary<int, ConfigTerrainData> m_terrainDataDic;
+        public Dictionary<int, ConfigTerrainData> TerrainDataDic
+        {
+            get { return m_terrainDataDic; }
+        }
+        private Dictionary<LandSurfaceType, ConfigTerrainData> m_terrainDataByLandType;
+        public Dictionary<LandSurfaceType, ConfigTerrainData> TerrainDataByLandType
+        {
+            get { return m_terrainDataByLandType; }
+        }
+        
+
+        #endregion
 
         public int interval
         {
@@ -49,8 +68,10 @@ namespace GamePloy
             path = Application.persistentDataPath + "/Data/";
             configPaths = new Dictionary<byte, string>
             {
+                   { (byte)ConfigDataType.ConstantData,"ConstantData"},
                    { (byte)ConfigDataType.TerrainData,"TerrainData"},
                    { (byte)ConfigDataType.ArchitectureData,"ArchitectureData"},
+                   { (byte)ConfigDataType.TechnologyData,"TechnologyData"},
 
 
             };
@@ -110,30 +131,51 @@ namespace GamePloy
         private void LoadAndSaveConfigData()
         {
             InitConfigDataDic();
-            var tempTerrainDic = GetDic<ConfigTerrainData>(ConfigDataType.TerrainData);
-            foreach(var value in tempTerrainDic.Values)
-            {
-                m_terrainDataDic.Add(value.Id, value);
-                m_terrainDataByLandType.Add(value.SurfaceType, value);
-            }
-            Debug.Log("m_terrainDic:" + m_terrainDataDic.Count);
-
-            var tempArchitectureDic = GetDic<ConfigArchitectureData>(ConfigDataType.ArchitectureData);
-            foreach(var value in tempArchitectureDic.Values)
-            {
-                if(value.FeatureType != LandFeatureType.None)
-                {
-                    m_architectureDataByFeatureType.Add(value.FeatureType, value);
-                }
-            }
-           
+            InitConcreteConfig();
+            
         }
 
         private void InitConfigDataDic()
         {
+            m_constantDataDic = new Dictionary<int, ConfigConstantData>();
+            m_technologyDic = new Dictionary<int, ConfigTechnologyData>();
             m_terrainDataDic = new Dictionary<int, ConfigTerrainData>();
             m_terrainDataByLandType = new Dictionary<LandSurfaceType, ConfigTerrainData>();
             m_architectureDataByFeatureType = new Dictionary<LandFeatureType, ConfigArchitectureData>();
+        }
+
+        private void InitConcreteConfig()
+        {
+            var tempConstantDic = GetDic<ConfigConstantData>(ConfigDataType.ConstantData);
+            foreach(var value in tempConstantDic.Values)
+            {
+                m_constantDataDic.Add(value.Id, value);
+            }
+
+            var tempTechDic = GetDic<ConfigTechnologyData>(ConfigDataType.TechnologyData);
+            foreach(var value in tempTechDic.Values)
+            {
+                m_technologyDic.Add(value.Id, value);
+            }
+
+            var tempArchitectureDic = GetDic<ConfigArchitectureData>(ConfigDataType.ArchitectureData);
+            foreach (var value in tempArchitectureDic.Values)
+            {
+                if (value.FeatureType != LandFeatureType.None)
+                {
+                    m_architectureDataByFeatureType.Add(value.FeatureType, value);
+                }
+            }
+
+
+
+            var tempTerrainDic = GetDic<ConfigTerrainData>(ConfigDataType.TerrainData);
+            foreach (var value in tempTerrainDic.Values)
+            {
+                m_terrainDataDic.Add(value.Id, value);
+                m_terrainDataByLandType.Add(value.SurfaceType, value);
+            }
+        
         }
 
         /// <summary>

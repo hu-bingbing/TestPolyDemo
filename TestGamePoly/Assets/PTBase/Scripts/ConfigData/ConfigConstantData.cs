@@ -15,7 +15,10 @@ namespace GamePloyConfigData
             Dictionary<string, object> dic = obj as Dictionary<string, object>;
             Id = int.Parse(dic["id"].ToString());
             Des = dic["desc"].ToString();
-            Data = dic["data"].ToString();
+            if(dic["data"] != null)
+            {
+                Data = dic["data"].ToString();
+            }
         }
 
     }

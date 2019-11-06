@@ -66,6 +66,7 @@ namespace GamePloy
         {
             ModuleManager.Instance.CreateModule(ModuleDef.LoginModule);
             ModuleManager.Instance.CreateModule(ModuleDef.GameModule);
+            ModuleManager.Instance.CreateModule(ModuleDef.ConfigConstantMethodModule);
 
         }
 
