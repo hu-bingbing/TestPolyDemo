@@ -117,6 +117,15 @@ namespace GamePloy
             bornY = UnityEngine.Random.Range(-bornY, bornY);
             Vector3 bornIndex = new Vector3(bornX, bornY, (0 - bornX - bornY));
             Debug.Log("_bornIndex:" + bornIndex);
+            Debug.Log("m_landIndexDic:" + m_landIndexDic);
+            if (m_landIndexDic.ContainsKey(bornIndex))
+            {
+                Debug.Log("111");
+            }
+            else
+            {
+                Debug.Log("22222");
+            }
             thisBornLandItem = m_landIndexDic[bornIndex];
 
             //int _randomIndex = UnityEngine.Random.Range(0, m_landList.Count);

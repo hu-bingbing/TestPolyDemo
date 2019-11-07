@@ -153,10 +153,10 @@ namespace GamePloy
             }
 
             var tempTechDic = GetDic<ConfigTechnologyData>(ConfigDataType.TechnologyData);
-            foreach(var value in tempTechDic.Values)
+            foreach (var value in tempTechDic.Values)
             {
                 m_technologyDic.Add(value.Id, value);
-                if(value.TechnologyLv == 0)
+                if (value.TechnologyLv == 0)
                 {
                     TechnologyManager.Instance.SetBornTechnology(value);
                 }

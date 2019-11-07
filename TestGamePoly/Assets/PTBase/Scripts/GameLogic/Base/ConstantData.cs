@@ -81,6 +81,13 @@ namespace GamePloy
         public static string UISelectLevel = "Page/UISelectLevel";
         public static string UIGame = "Page/UIGamePage";
 
+        #region uiitem
+
+        public static string UIGameItemTechnology = "UI/Page/Item/UIItemTechnology";
+
+        #endregion
+
+        public static string TechnologyIconPath = "Icon/";
         /// <summary>
         /// 地形路径
         /// </summary>

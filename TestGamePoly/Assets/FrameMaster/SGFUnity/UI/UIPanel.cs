@@ -211,6 +211,19 @@ namespace SGF.Unity.UI
             }
         }
 
+        public T[] FindList<T>() where T : MonoBehaviour
+        {
+            Transform target = this.transform;
+            if (target != null)
+            {
+                return target.GetComponentsInChildren<T>();
+            }
+            else
+            {
+                Debuger.LogError("未找到UI控件：{0}");
+                return null;
+            }
+        }
 
 
         #region UI事件监听辅助函数

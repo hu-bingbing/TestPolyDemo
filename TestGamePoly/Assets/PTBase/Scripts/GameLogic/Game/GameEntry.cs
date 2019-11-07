@@ -32,6 +32,7 @@ namespace GamePloy
             Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
             GameManager.Instance.Initialize();
+            TechnologyManager.Instance.Initialize();
             ConfigDataManager.Instance.Initialize();
             LevelManager.Instance.Initialize();
             GestureManager.Instance.Initialize();

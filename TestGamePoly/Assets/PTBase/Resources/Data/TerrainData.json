@@ -11,8 +11,8 @@
   "100001": {
     "id": 100001,
     "desc": "深海",
-    "height": 0,
-    "moveSpend": -3,
+    "height": -3,
+    "moveSpend": 1,
     "assetName": "WaterDeepItem",
     "landSurfaceType": 1,
     "100001": "100001"
@@ -20,8 +20,8 @@
   "100002": {
     "id": 100002,
     "desc": "海",
-    "height": 0,
-    "moveSpend": -2,
+    "height": -2,
+    "moveSpend": 1,
     "assetName": "WaterItem",
     "landSurfaceType": 2,
     "100002": "100002"

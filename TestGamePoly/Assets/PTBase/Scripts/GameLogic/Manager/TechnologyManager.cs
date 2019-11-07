@@ -19,27 +19,57 @@ namespace GamePloy
             get { return m_bornTechnology; }
         }
 
-        private Dictionary<int, List<int>> m_technologyEffect;
-        public Dictionary<int, List<int>> TechnologyEffectDic
+        private Dictionary<int, List<ConfigTechnologyData>> m_technologyEffect;
+        public Dictionary<int, List<ConfigTechnologyData>> TechnologyEffectDic
         {
             get { return m_technologyEffect; }
         }
 
+        private List<ConfigTechnologyData> m_needTechnologyList;
+        public List<ConfigTechnologyData> NeedTechnologyList
+        {
+            get { return m_needTechnologyList; }
+        }
+
+
 
         public void Initialize(object args = null)
         {
-            m_technologyEffect = new Dictionary<int, List<int>>();
+            m_technologyEffect = new Dictionary<int, List<ConfigTechnologyData>>();
+            m_needTechnologyList = new List<ConfigTechnologyData>();
         }
 
+        public void SetNeedTechnology(int _effectid)
+        {
+            if (m_technologyEffect.ContainsKey(_effectid))
+            {
+                //m_needTechnologyList.Clear();
+                m_needTechnologyList = m_technologyEffect[_effectid];
+            }
+        }
 
         public void SetBornTechnology(ConfigTechnologyData _tempData)
         {
             m_bornTechnology = _tempData;
+            AddToTechnologyDic(m_bornTechnology);
         }
 
         public void AddToTechnologyDic(ConfigTechnologyData _tempData)
         {
-
+            if(_tempData.EffectDataList!= null && _tempData.EffectDataList.Count > 0)
+            {
+                for(int i = 0;i < _tempData.EffectDataList.Count; i++)
+                {
+                    var _tempEffectData = _tempData.EffectDataList[i];
+                    var _effectid = _tempEffectData.EffectId;
+                    var _resultId = _tempEffectData.ResultNum;
+                    if (!m_technologyEffect.ContainsKey(_effectid))
+                    {
+                        m_technologyEffect.Add(_effectid, new List<ConfigTechnologyData>());
+                    }
+                    m_technologyEffect[_effectid].Add(_tempData);
+                }
+            }
         }
 
         public void ToUpdate()

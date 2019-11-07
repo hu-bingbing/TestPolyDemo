@@ -107,6 +107,7 @@ namespace GamePloy
             {
                 var temp = hit.transform.GetComponent<BaseLandItem>();
                 temp.RayThisLand();
+                GameManager.Instance.ClickGameMapItem(temp);
             }
         }
 
