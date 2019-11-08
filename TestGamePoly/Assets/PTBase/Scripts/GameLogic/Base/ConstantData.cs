@@ -80,6 +80,7 @@ namespace GamePloy
         public static string UILogin = "Page/UILoginPage";
         public static string UISelectLevel = "Page/UISelectLevel";
         public static string UIGame = "Page/UIGamePage";
+        public static string UILearnTechnology = "Page/UILearnTechnology";
 
         #region uiitem
 
@@ -89,7 +90,7 @@ namespace GamePloy
 
         #endregion
 
-        public static string TechnologyIconPath = "Icon/";
+        public static string TechnologyIconPath = "Textures/Icon/";
         /// <summary>
         /// 地形路径
         /// </summary>

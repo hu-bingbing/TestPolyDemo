@@ -18,24 +18,53 @@ namespace GamePloy
         {
             get { return m_bornTechnology; }
         }
-
+        /// <summary>
+        /// 作用类型
+        /// </summary>
         private Dictionary<int, List<ConfigTechnologyData>> m_technologyEffect;
-        public Dictionary<int, List<ConfigTechnologyData>> TechnologyEffectDic
+        public Dictionary<int, List<ConfigTechnologyData>> OwnTechnologyEffectDic
         {
             get { return m_technologyEffect; }
         }
 
+        /// <summary>
+        /// 不同的模块用到不同的科技
+        /// </summary>
         private List<ConfigTechnologyData> m_needTechnologyList;
         public List<ConfigTechnologyData> NeedTechnologyList
         {
             get { return m_needTechnologyList; }
         }
 
-
-
+        /// <summary>
+        /// 第一等级的科技
+        /// </summary>
+        private List<ConfigTechnologyData> m_topTechnologyList;
+        public List<ConfigTechnologyData> TopTechnologyList
+        {
+            get { return m_topTechnologyList; }
+        }
+        /// <summary>
+        /// 已经点开的科技
+        /// </summary>
+        private List<ConfigTechnologyData> m_ownTechList;
+        public List<ConfigTechnologyData> OwnTechList
+        {
+            get { return m_ownTechList; }
+        }
+        /// <summary>
+        /// 解锁的科技
+        /// </summary>
+        private List<ConfigTechnologyData> m_unlockTectList;
+        public List<ConfigTechnologyData> UnlockTectList
+        {
+            get { return m_unlockTectList; }
+        }
+        
         public void Initialize(object args = null)
         {
             m_technologyEffect = new Dictionary<int, List<ConfigTechnologyData>>();
+            m_topTechnologyList = new List<ConfigTechnologyData>();
             m_needTechnologyList = new List<ConfigTechnologyData>();
         }
 
@@ -70,6 +99,11 @@ namespace GamePloy
                     m_technologyEffect[_effectid].Add(_tempData);
                 }
             }
+        }
+
+        public void AddToTopTech(ConfigTechnologyData _data)
+        {
+            m_topTechnologyList.Add(_data);
         }
 
         public void ToUpdate()

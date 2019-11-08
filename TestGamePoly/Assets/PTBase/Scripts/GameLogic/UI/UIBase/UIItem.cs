@@ -11,10 +11,13 @@ namespace GamePloy.UI
        
         public void Create(object arg = null)
         {
-         
             OnCreate(arg);
         }
         
+        public void Show(bool isShow)
+        {
+
+        }
 
         public void Release()
         {
@@ -22,6 +25,7 @@ namespace GamePloy.UI
         }
 
         protected abstract void OnCreate(object arg = null);
+        protected abstract void OnShow(bool isShow);
         protected abstract void OnRelease();
 
     }

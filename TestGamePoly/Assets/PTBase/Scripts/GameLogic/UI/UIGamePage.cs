@@ -38,6 +38,7 @@ public class UIGamePage : UIPolyPage
     private void OnClickLearn(string obj)
     {
         Debug.Log("OnClcikLearn----");
+        UIManager.Instance.OpenWindow(UIDef.UILearnTechnology);
     }
 
     private void OnClickMapItem()

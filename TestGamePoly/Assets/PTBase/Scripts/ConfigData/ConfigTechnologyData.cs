@@ -38,6 +38,8 @@ namespace GamePloyConfigData
         private int m_effect02;
         private int m_result02;
 
+        public List<ConfigTechnologyData> SonList;
+
 
         protected override void OnLoad(object obj)
         {
@@ -85,9 +87,17 @@ namespace GamePloyConfigData
                 m_result02 = int.Parse(dic["result02"].ToString());
                 EffectDataList.Add(new TechnologyEffectData(m_effect02, m_result02));
             }
-            
-            
-           
+
+
+            SonList = new List<ConfigTechnologyData>();
+        }
+
+        public void AddToSonList(ConfigTechnologyData _data)
+        {
+            if (!SonList.Contains(_data))
+            {
+                SonList.Add(_data);
+            }
         }
     }
 }

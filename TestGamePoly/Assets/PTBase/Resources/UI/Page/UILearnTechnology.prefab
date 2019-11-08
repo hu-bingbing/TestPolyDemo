@@ -226,8 +226,8 @@ MonoBehaviour:
   m_ChildAlignment: 4
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 350, y: 800}
-  m_Spacing: {x: 30, y: 0}
+  m_CellSize: {x: 345, y: 800}
+  m_Spacing: {x: 35, y: 0}
   m_Constraint: 2
   m_ConstraintCount: 1
 --- !u!114 &978091793214283505
@@ -303,7 +303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AutoBindUIElement: 0
-  m_btnGoBack: {fileID: 6065993949584723578}
+  m_btnClose: {fileID: 6065993949584723578}
   skillItemArray:
   - {fileID: 1519845697374818496}
   - {fileID: 8215686591766513128}

@@ -10,6 +10,7 @@ namespace GamePloy.UI
     {
         public Button selfBtn;
         public Text contentText;
+        public Text normalText;
         ConfigTechnologyData thisTechnologyData;
 
         protected override void OnCreate(object arg = null)
@@ -26,6 +27,11 @@ namespace GamePloy.UI
         protected void OnClickSelf()
         {
 
+        }
+
+        protected override void OnShow(bool isShow)
+        {
+           
         }
 
         protected override void OnRelease()

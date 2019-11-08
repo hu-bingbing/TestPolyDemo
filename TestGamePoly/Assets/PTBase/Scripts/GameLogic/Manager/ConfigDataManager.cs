@@ -32,8 +32,7 @@ namespace GamePloy
         {
             get { return m_technologyDic; }
         }
-
-
+     
         private Dictionary<LandFeatureType, ConfigArchitectureData> m_architectureDataByFeatureType;
         public Dictionary<LandFeatureType, ConfigArchitectureData> ArchitectureDataByFeatureType
         {
@@ -132,7 +131,7 @@ namespace GamePloy
         {
             InitConfigDataDic();
             InitConcreteConfig();
-            
+            ReworkConfigData();
         }
 
         private void InitConfigDataDic()
@@ -156,10 +155,6 @@ namespace GamePloy
             foreach (var value in tempTechDic.Values)
             {
                 m_technologyDic.Add(value.Id, value);
-                if (value.TechnologyLv == 0)
-                {
-                    TechnologyManager.Instance.SetBornTechnology(value);
-                }
             }
 
             var tempArchitectureDic = GetDic<ConfigArchitectureData>(ConfigDataType.ArchitectureData);
@@ -170,16 +165,37 @@ namespace GamePloy
                     m_architectureDataByFeatureType.Add(value.FeatureType, value);
                 }
             }
-
-
-
+            
             var tempTerrainDic = GetDic<ConfigTerrainData>(ConfigDataType.TerrainData);
             foreach (var value in tempTerrainDic.Values)
             {
                 m_terrainDataDic.Add(value.Id, value);
                 m_terrainDataByLandType.Add(value.SurfaceType, value);
             }
-        
+        }
+
+        private void ReworkConfigData()
+        {
+            foreach(var value in m_technologyDic.Values)
+            {
+                int _tempValueLv = value.TechnologyLv;
+                if (_tempValueLv == 0)
+                {
+                    TechnologyManager.Instance.SetBornTechnology(value);
+                }
+                else if (_tempValueLv == 1)
+                {
+                    TechnologyManager.Instance.AddToTopTech(value);
+                }
+                int _tempPreId = value.TechnologyPreId;
+                if(_tempPreId != 0)
+                {
+                    if (m_technologyDic.ContainsKey(_tempPreId))
+                    {
+                        m_technologyDic[_tempPreId].AddToSonList(value);
+                    }
+                }
+            }
         }
 
         /// <summary>
