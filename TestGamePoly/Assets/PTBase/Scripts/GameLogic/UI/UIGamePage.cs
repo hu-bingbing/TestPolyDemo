@@ -11,7 +11,7 @@ public class UIGamePage : UIPolyPage
 {
     public Button btnLearn;
     public ScrollRect selectScroll;
-    private List<UIItemGamePageTechnology> m_btnItemList;
+    private List<ItemTechnology> m_btnItemList;
 
     protected override void OnOpen(object arg = null)
     {
@@ -24,8 +24,8 @@ public class UIGamePage : UIPolyPage
     void InitScroll()
     {
         SetScroll(true);
-        m_btnItemList = new List<UIItemGamePageTechnology>();
-        var _tempArray = FindList<UIItemGamePageTechnology>();
+        m_btnItemList = new List<ItemTechnology>();
+        var _tempArray = FindList<ItemTechnology>();
         foreach(var value in _tempArray)
         {
             value.gameObject.SetActive(false);
@@ -56,10 +56,10 @@ public class UIGamePage : UIPolyPage
                 }
                 else
                 {
-                    var tempnewObj = Instantiate(Resources.Load<GameObject>(UIDef.UIGameItemTechnology));
+                    var tempnewObj = Instantiate(Resources.Load<GameObject>(UIDef.uiTechnologyItem));
 
                     ObjectUtil.Attach(tempnewObj.transform, selectScroll.content);
-                    m_btnItemList.Add(tempnewObj.GetComponent<UIItemGamePageTechnology>());
+                    m_btnItemList.Add(tempnewObj.GetComponent<ItemTechnology>());
                     m_btnItemList[i].Create(_tempCon);
                 }
             }

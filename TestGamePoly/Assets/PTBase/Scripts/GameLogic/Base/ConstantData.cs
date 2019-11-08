@@ -83,7 +83,9 @@ namespace GamePloy
 
         #region uiitem
 
-        public static string UIGameItemTechnology = "UI/Page/Item/UIItemTechnology";
+        public static string uiTechnologyItem = "UI/Page/Item/uiTechnologyItem";
+        public static string uiSkillItem = "UI/Page/Item/uiSkillItem";
+
 
         #endregion
 

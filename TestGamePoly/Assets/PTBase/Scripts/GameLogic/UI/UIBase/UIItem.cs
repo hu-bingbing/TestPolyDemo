@@ -4,30 +4,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public abstract class UIItem : MonoBehaviour
+namespace GamePloy.UI
 {
-    public Button selfBtn;
-    public Text contentText;
-
-    public void Create(object arg = null)
+    public abstract class UIItem : MonoBehaviour
     {
-        selfBtn.onClick.AddListener(OnClickSelf);
-        OnCreate(arg);
+       
+        public void Create(object arg = null)
+        {
+         
+            OnCreate(arg);
+        }
+        
+
+        public void Release()
+        {
+            OnRelease();
+        }
+
+        protected abstract void OnCreate(object arg = null);
+        protected abstract void OnRelease();
+
     }
-
-    private void OnClickSelf()
-    {
-        OnClickSelfBtn();
-    }
-
-    public void Release()
-    {
-        selfBtn.onClick.RemoveListener(OnClickSelf);
-        OnRelease();
-    }
-
-    protected abstract void OnCreate(object arg = null);
-    protected abstract void OnClickSelfBtn();
-    protected abstract void OnRelease();
-
 }
+
