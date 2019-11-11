@@ -81,6 +81,7 @@ namespace GamePloy
         public static string UISelectLevel = "Page/UISelectLevel";
         public static string UIGame = "Page/UIGamePage";
         public static string UILearnTechnology = "Page/UILearnTechnology";
+        public static string UITipWindow = "Page/UITipWindow";
 
         #region uiitem
 
@@ -142,4 +143,13 @@ namespace GamePloy
         TechnologyData,
 
     }
+
+
+    #region 事件
+
+    public delegate void DeleChangeFigure(int num);
+
+    public delegate void DeleAction();
+
+    #endregion
 }

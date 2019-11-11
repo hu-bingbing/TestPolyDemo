@@ -13,6 +13,12 @@ namespace GamePloy
 
     public class LevelManager : Singleton<LevelManager>, IClue
     {
+        private bool m_clickBlock;
+        public bool IsClickBolck
+        {
+            get { return m_clickBlock; }
+        }
+
         private LevelType m_currentLevelType;
         public LevelType CurrentLevelType
         {
@@ -43,15 +49,23 @@ namespace GamePloy
         {
             m_landRoot = EntityRoot.Find(ConstantData.EntityRoot, ConstantData.LandRoot);
             m_cameraRoot = EntityRoot.Find(ConstantData.EntityRoot, ConstantData.CameraRoot);
+            SetClickBolck(false);
+        }
+
+        public void SetClickBolck(bool _iscan)
+        {
+            m_clickBlock = _iscan;
         }
 
         public void LoadLevelEntity(LevelType _type)
         {
             m_currentLevelType = _type;
+            GameManager.Instance.OnChangeGameGold(5);
 
             #region 实体加载
 
             CreateLevelData(_type, m_landRoot);
+            SetClickBolck(true);
             #endregion
 
             #region 相机加载
@@ -91,9 +105,8 @@ namespace GamePloy
         
         public void ToUpdate()
         {
-            if (Input.GetMouseButtonDown(0) && m_gameCamera != null)
+            if (Input.GetMouseButtonDown(0) && m_gameCamera != null && m_clickBlock)
             {
-                Debug.Log("OnCLickButtonDown");
                 RayTheMap();
             }
         }

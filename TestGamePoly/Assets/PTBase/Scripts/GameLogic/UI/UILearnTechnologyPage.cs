@@ -19,11 +19,12 @@ public class UILearnTechnologyPage : UIPolyWindow
             var value = _templist[i];
             skillItemArray[i].Create(value);
         }
+        LevelManager.Instance.SetClickBolck(false);
     }
 
 
     protected override void OnClose(object arg = null)
     {
-      
+        LevelManager.Instance.SetClickBolck(true);
     }
 }

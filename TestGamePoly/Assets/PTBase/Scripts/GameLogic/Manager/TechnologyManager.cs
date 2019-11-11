@@ -66,6 +66,7 @@ namespace GamePloy
             m_technologyEffect = new Dictionary<int, List<ConfigTechnologyData>>();
             m_topTechnologyList = new List<ConfigTechnologyData>();
             m_needTechnologyList = new List<ConfigTechnologyData>();
+            m_ownTechList = new List<ConfigTechnologyData>();
         }
 
         public void SetNeedTechnology(int _effectid)
@@ -76,7 +77,10 @@ namespace GamePloy
                 m_needTechnologyList = m_technologyEffect[_effectid];
             }
         }
-
+        /// <summary>
+        /// 初始科技
+        /// </summary>
+        /// <param name="_tempData"></param>
         public void SetBornTechnology(ConfigTechnologyData _tempData)
         {
             m_bornTechnology = _tempData;
@@ -85,6 +89,12 @@ namespace GamePloy
 
         public void AddToTechnologyDic(ConfigTechnologyData _tempData)
         {
+            if (!m_ownTechList.Contains(_tempData))
+            {
+                Debug.LogWarning("-------addown:" + _tempData.Id);
+                m_ownTechList.Add(_tempData);
+            }
+
             if(_tempData.EffectDataList!= null && _tempData.EffectDataList.Count > 0)
             {
                 for(int i = 0;i < _tempData.EffectDataList.Count; i++)

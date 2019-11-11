@@ -30,7 +30,7 @@ namespace GamePloy
             Application.runInBackground = true;
             Application.targetFrameRate = 30;
             Screen.sleepTimeout = SleepTimeout.NeverSleep;
-
+            
             GameManager.Instance.Initialize();
             TechnologyManager.Instance.Initialize();
             ConfigDataManager.Instance.Initialize();
@@ -40,7 +40,7 @@ namespace GamePloy
             ModuleManager.Instance.Initialize();
 
         }
-
+        
         protected override void OnAppCreate()
         {
             GameMain.AddProcess(GameManager.Instance);

@@ -131,6 +131,7 @@ namespace GamePloy
         public void RayThisLand()
         {
             Debug.Log("type:" + m_landType);
+            this.GetComponent<Animator>().SetTrigger("isClick");
             if(m_architectureData != null)
             {
                 Debug.Log("featureType:" + m_architectureData.FeatureType);
@@ -165,9 +166,8 @@ namespace GamePloy
 
         public void CreateBuilding(object args = null)
         {
-            Debug.Log("CreateBuilding:" + args);
             m_architectureData = (ConfigArchitectureData)args;
-            Debug.LogWarning(m_landData.Index_X + "y:" + m_landData.Index_Y);
+            Debug.LogWarning(m_landData.Index_X + " y:" + m_landData.Index_Y);
             OnCreateBuilding(m_architectureData.ArchitectureAssetPath);
             SetNeighbor(2);
         }

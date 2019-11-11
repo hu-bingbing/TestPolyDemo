@@ -18,17 +18,24 @@ using System.Collections.Generic;
 using SGF.SEvent;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace SGF.Unity.UI
 {
     public abstract class UIPanel:MonoBehaviour, ILogTag
     {
         public virtual UITypeDef UIType { get { return UITypeDef.Unkown; } }
-
+   
         private int m_layer = UILayerDef.Unkown;
         public int Layer { get { return m_layer; } set { m_layer = value; } }
 
         public bool AutoBindUIElement = false;
+
+        public delegate void CloseEvent(object arg = null);
+        /// <summary>
+        /// 关闭窗口事件
+        /// </summary>
+        public event CloseEvent OnCloseEvent;
 
         //[SerializeField]
         private AnimationClip m_openAniClip;
@@ -161,11 +168,16 @@ namespace SGF.Unity.UI
             {
                 this.gameObject.SetActive(false);
             }
+            if(OnCloseEvent != null)
+            {
+                OnCloseEvent(m_closeArg);
+            }
 
             OnClose(m_closeArg);
             onClose.Invoke(m_closeArg);
 
             m_closeArg = null;
+            OnCloseEvent = null;
         }
 
 
@@ -222,6 +234,31 @@ namespace SGF.Unity.UI
             {
                 Debuger.LogError("未找到UI控件：{0}");
                 return null;
+            }
+        }
+
+        protected void SetChildText(Text objText, string _text)
+        {
+            if (objText != null)
+            {
+                objText.text = _text;
+            }
+        }
+
+        protected void SetChildBtnText(Button objBtn,string _text)
+        {
+            Text objText = objBtn.transform.GetComponentInChildren<Text>();
+            if (objText != null)
+            {
+                objText.text = _text;
+            }
+        }
+
+        protected void SetChildActive(GameObject obj,bool isactive)
+        {
+            if(obj != null)
+            {
+                obj.SetActive(isactive);
             }
         }
 

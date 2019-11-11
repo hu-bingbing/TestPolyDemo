@@ -38,9 +38,7 @@ namespace GamePloy
         {
             get { return m_architectureDataByFeatureType; }
         }
-
-
-
+        
         private Dictionary<int, ConfigTerrainData> m_terrainDataDic;
         public Dictionary<int, ConfigTerrainData> TerrainDataDic
         {
@@ -52,15 +50,13 @@ namespace GamePloy
             get { return m_terrainDataByLandType; }
         }
         
-
         #endregion
 
         public int interval
         {
             get { return 2; }
         }
-
-
+        
         public void Initialize(object args = null)
         {
 
@@ -179,6 +175,7 @@ namespace GamePloy
             foreach(var value in m_technologyDic.Values)
             {
                 int _tempValueLv = value.TechnologyLv;
+                //初始科技
                 if (_tempValueLv == 0)
                 {
                     TechnologyManager.Instance.SetBornTechnology(value);

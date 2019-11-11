@@ -9,6 +9,9 @@ using UnityEngine.UI;
 
 public class UIGamePage : UIPolyPage
 {
+    public Text goldText;
+    public Text scoreText;
+    public Text turnText;
     public Button btnLearn;
     public ScrollRect selectScroll;
     private List<ItemTechnology> m_btnItemList;
@@ -16,9 +19,33 @@ public class UIGamePage : UIPolyPage
     protected override void OnOpen(object arg = null)
     {
         SetUILayer(UILayer.BASE_LAYER, UILayerDef.Page);
-        InitScroll();
+        InitUI();
         AddUIClickListener(btnLearn.name, OnClickLearn);
         GameManager.Instance.OnClickMapItem += OnClickMapItem;
+    }
+
+    void InitUI()
+    {
+        RefreshText();
+        InitDele();
+        InitScroll();
+    }
+
+    void InitDele()
+    {
+        GameManager.Instance.OnRefreshGameUI += OnRefreshUIData;
+    }
+
+    private void OnRefreshUIData()
+    {
+        RefreshText();
+    }
+
+    void RefreshText()
+    {
+        goldText.text = GameManager.Instance.GameGold.ToString();
+        scoreText.text = GameManager.Instance.GameScore.ToString();
+        turnText.text = GameManager.Instance.GameTurn.ToString();
     }
 
     void InitScroll()
@@ -78,6 +105,7 @@ public class UIGamePage : UIPolyPage
         m_btnItemList.Clear();
         RemoveUIClickListener(btnLearn.name, OnClickLearn);
         GameManager.Instance.OnClickMapItem -= OnClickMapItem;
+        GameManager.Instance.OnRefreshGameUI -= OnRefreshUIData;
         ModuleManager.Instance.GetModule(ModuleDef.GameModule).Release();
     }
 

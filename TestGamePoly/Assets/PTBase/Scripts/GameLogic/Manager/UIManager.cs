@@ -17,6 +17,7 @@
 
 using System;
 using System.Collections.Generic;
+using GamePloy.UI;
 using SGF;
 using SGF.Unity.UI;
 using SGF.Utils;
@@ -80,6 +81,25 @@ namespace GamePloy
             {
                 if (onSceneLoadedOnly != null) onSceneLoadedOnly(scene.name);
             };
+        }
+
+        public UIWindow OpenTipWindow(string _title,string _content,string _btnNameArgs,Action<object> onCloseEvent = null)
+        {
+            UITipArg arg = new UITipArg();
+            arg.Title = _title;
+            arg.Content = _content;
+            arg.BtnNameArgs = _btnNameArgs;
+            UIWindow wnd = OpenWindow(UIDef.UITipWindow,arg);
+
+            if (wnd != null && onCloseEvent != null)
+            {
+                wnd.OnCloseEvent += closeArg =>
+                {
+                    onCloseEvent(closeArg);
+                };
+            }
+
+            return wnd;
         }
 
         public void Clean()
