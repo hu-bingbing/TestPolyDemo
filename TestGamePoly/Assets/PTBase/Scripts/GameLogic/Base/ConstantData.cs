@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using GamePloyConfigData;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -150,6 +151,8 @@ namespace GamePloy
     public delegate void DeleChangeFigure(int num);
 
     public delegate void DeleAction();
+
+    public delegate void DeleOnRefreshNewTech(ConfigTechnologyData techData = null);
 
     #endregion
 }

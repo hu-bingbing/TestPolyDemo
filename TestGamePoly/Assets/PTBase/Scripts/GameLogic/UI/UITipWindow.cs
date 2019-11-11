@@ -28,6 +28,11 @@ namespace GamePloy.UI
             m_arg = arg as UITipArg;
             textContent.text = m_arg.Content;
             string[] btnTexts = m_arg.BtnNameArgs.Split('|');
+            bool isHasBtns = false;
+            if (m_arg.BtnNameArgs.Contains("|"))
+            {
+                isHasBtns = true;
+            }
 
             SetChildText(textTitle, m_arg.Title);
 
@@ -36,7 +41,7 @@ namespace GamePloy.UI
 
             for (int i = 0; i < tipButtons.Length; i++)
             {
-                if (i < btnTexts.Length)
+                if (i < btnTexts.Length && isHasBtns)
                 {
                     SetChildBtnText(tipButtons[i], btnTexts[i]);
                     SetChildActive(tipButtons[i].gameObject, true);

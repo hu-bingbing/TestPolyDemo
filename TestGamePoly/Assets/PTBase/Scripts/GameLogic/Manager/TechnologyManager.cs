@@ -13,6 +13,8 @@ namespace GamePloy
             get { return 2; }
         }
 
+        public DeleOnRefreshNewTech OnRefreshTech;
+
         private ConfigTechnologyData m_bornTechnology;
         public ConfigTechnologyData BornTechnology
         {
@@ -86,7 +88,7 @@ namespace GamePloy
             m_bornTechnology = _tempData;
             AddToTechnologyDic(m_bornTechnology);
         }
-
+        
         public void AddToTechnologyDic(ConfigTechnologyData _tempData)
         {
             if (!m_ownTechList.Contains(_tempData))
@@ -108,6 +110,11 @@ namespace GamePloy
                     }
                     m_technologyEffect[_effectid].Add(_tempData);
                 }
+            }
+
+            if(OnRefreshTech != null)
+            {
+                OnRefreshTech();
             }
         }
 

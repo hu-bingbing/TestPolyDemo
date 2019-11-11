@@ -49,6 +49,7 @@ namespace GamePloy.UI
                 if (TechnologyManager.Instance.OwnTechList.Contains(m_thisTechData))
                 {
                     Debug.LogWarning("Contain--" + m_thisTechId);
+                    btnShowImg.gameObject.SetActive(true);
                 }
                 else
                 {
@@ -73,10 +74,12 @@ namespace GamePloy.UI
                 if(GameManager.Instance.GameGold < m_costGold)
                 {
                     Debug.Log("-----金币不够---");
+                    UIManager.Instance.OpenTipWindow("提示", "金币不够", "");
                 }
                 else
                 {
                     GameManager.Instance.OnChangeGameGold(-m_costGold);
+                    TechnologyManager.Instance.AddToTechnologyDic(m_thisTechData);
                 }
             }
             else if((int)arg == 2)
