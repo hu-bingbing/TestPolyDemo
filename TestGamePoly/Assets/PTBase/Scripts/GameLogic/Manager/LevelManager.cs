@@ -1,4 +1,6 @@
-﻿using SGF.Utils;
+﻿using GamePloyConfigData;
+using SGF.Utils;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -71,8 +73,39 @@ namespace GamePloy
             #region 相机加载
             //SetCameraTarget(m_landRoot);
             #endregion
+
+            GestureManager.Instance.OnGestureTap += OnGestureClickTap;
+            GameManager.Instance.OnClickTechBtn += OnClickTech;
         }
-        
+
+        private void OnClickTech(ConfigTechnologyData techData)
+        {
+          
+        }
+
+        private void OnGestureClickTap(Gesture gesture)
+        {
+            var gesturePos = gesture.Position;
+            if (m_clickBlock)
+            {
+                RayTheMap(gesturePos);
+            }
+        }
+
+        public void RayTheMap(Vector3 _pos)
+        {
+            RaycastHit hit;
+            Ray ray = m_gameCamera.ScreenPointToRay(_pos);
+
+            if (Physics.Raycast(ray, out hit, 100))
+            {
+                Debug.Log("rayhit:" + hit.transform.name);
+                var temp = hit.transform.GetComponent<BaseLandItem>();
+                temp.RayThisLand();
+                GameManager.Instance.ClickGameMapItem(temp);
+            }
+        }
+
         public void CreateLevelData(LevelType _type, Transform parent, object arg = null)
         {
             if (_type == LevelType.EASY)
@@ -107,29 +140,24 @@ namespace GamePloy
         {
             if (Input.GetMouseButtonDown(0) && m_gameCamera != null && m_clickBlock)
             {
-                RayTheMap();
+               // RayTheMap();
             }
         }
 
-        public void RayTheMap()
-        {
-            RaycastHit hit;
-            Ray ray = m_gameCamera.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(ray, out hit, 100))
-            {
-                var temp = hit.transform.GetComponent<BaseLandItem>();
-                temp.RayThisLand();
-                GameManager.Instance.ClickGameMapItem(temp);
-            }
-        }
 
         public void ReleaseMap()
         {
+            GestureManager.Instance.OnGestureTap -= OnGestureClickTap;
+            GameManager.Instance.OnClickTechBtn -= OnClickTech;
             m_currentLevelData.Release();
             m_currentLevelData = null;
         }
 
+        public void Release(object args = null)
+        {
+
+        }
     }
 }
 

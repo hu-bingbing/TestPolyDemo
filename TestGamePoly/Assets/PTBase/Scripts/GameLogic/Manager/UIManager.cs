@@ -377,12 +377,15 @@ namespace GamePloy
                 ui.Close(arg);
             }
         }
-        
+
         #endregion
 
         //==========================================================================================
 
+        public void Release(object args = null)
+        {
 
+        }
 
     }
 }

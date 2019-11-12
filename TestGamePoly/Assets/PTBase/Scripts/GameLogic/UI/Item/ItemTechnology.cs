@@ -19,13 +19,22 @@ namespace GamePloy.UI
             {
                 thisTechnologyData = (ConfigTechnologyData)arg;
             }
+            
             selfBtn.onClick.AddListener(OnClickSelf);
             selfBtn.image.sprite = Resources.Load<Sprite>(thisTechnologyData.IconAssetPath);
-            contentText.text = thisTechnologyData.Id.ToString();
+         
+
+            string _showname = thisTechnologyData.Id.ToString() + "" + thisTechnologyData.Name;
+            contentText.text = _showname;
+            normalText.text = _showname;
         }
 
         protected void OnClickSelf()
         {
+            if(GameManager.Instance.OnClickTechBtn != null)
+            {
+                GameManager.Instance.OnClickTechBtn(thisTechnologyData);
+            }
 
         }
 

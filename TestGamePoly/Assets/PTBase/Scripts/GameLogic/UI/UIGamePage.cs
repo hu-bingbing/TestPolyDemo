@@ -26,19 +26,14 @@ public class UIGamePage : UIPolyPage
 
     void InitUI()
     {
-        RefreshText();
-        InitDele();
-        InitScroll();
-    }
-
-    void InitDele()
-    {
+        OnRefreshUIData();
         GameManager.Instance.OnRefreshGameUI += OnRefreshUIData;
     }
-
+    
     private void OnRefreshUIData()
     {
         RefreshText();
+        InitScroll();
     }
 
     void RefreshText()
@@ -58,13 +53,11 @@ public class UIGamePage : UIPolyPage
             value.gameObject.SetActive(false);
             m_btnItemList.Add(value);
         }
-        Debug.Log("array: " + _tempArray.Length);
         SetScroll();
     }
 
     private void OnClickLearn(string obj)
     {
-        Debug.Log("OnClcikLearn----");
         UIManager.Instance.OpenWindow(UIDef.UILearnTechnology);
     }
 

@@ -123,6 +123,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FingerGestures
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ad6fdd6c3751993499aef52903582a27, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ad6fdd6c3751993499aef52903582a27, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -495,6 +499,8 @@ GameObject:
   m_Component:
   - component: {fileID: 627406875}
   - component: {fileID: 627406876}
+  - component: {fileID: 627406877}
+  - component: {fileID: 627406878}
   m_Layer: 0
   m_Name: Gesture
   m_TagString: Untagged
@@ -529,6 +535,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ba8047ebc4540e4e94c4a1350a0ea05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &627406877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 627406874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 407289a35f3c592419f607d117d413c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiredFingerCount: 1
+  DistanceUnit: 2
+  MaxSimultaneousGestures: 1
+  ResetMode: 0
+  Raycaster: {fileID: 0}
+  ClusterManager: {fileID: 0}
+  Delegate: {fileID: 0}
+  UseSendMessage: 1
+  EventMessageName: OnTap
+  EventMessageTarget: {fileID: 0}
+  SendMessageToSelection: 0
+  IsExclusive: 0
+  RequiredTaps: 1
+  MoveTolerance: 0.5
+  MaxDuration: 0
+  MaxDelayBetweenTaps: 0.5
+--- !u!114 &627406878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 627406874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3aeaa6af5a2574dbc0c14ed591b5b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FingerIndexFilter: -1
+  Raycaster: {fileID: 0}
+  UseSendMessage: 1
+  SendMessageToSelection: 1
+  MessageTarget: {fileID: 0}
+  MoveMessageName: OnFingerMove
+  StationaryMessageName: OnFingerStationary
+  TrackMove: 1
+  TrackStationary: 1
 --- !u!1 &752591513
 GameObject:
   m_ObjectHideFlags: 0
@@ -998,7 +1053,7 @@ PrefabInstance:
     - target: {fileID: 978091793509269213, guid: 20f741aeaf4c8c443b36915cef08143a,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 978091793509269186, guid: 20f741aeaf4c8c443b36915cef08143a,
         type: 3}
@@ -2049,7 +2104,7 @@ PrefabInstance:
     - target: {fileID: 1482905696989506693, guid: dbfc73b44e315f54eaf10361d5ec3712,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7750855185241996567, guid: dbfc73b44e315f54eaf10361d5ec3712,
         type: 3}

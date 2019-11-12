@@ -246,7 +246,10 @@ namespace GamePloy
         {
 
         }
+        public void Release(object args = null)
+        {
 
+        }
     }
 }
 

@@ -68,7 +68,6 @@ namespace GamePloy.UI
 
         private void OnClickTipBtn(object arg)
         {
-            Debug.Log("arg:" + arg);
             if((int)arg == 1)
             {
                 if(GameManager.Instance.GameGold < m_costGold)

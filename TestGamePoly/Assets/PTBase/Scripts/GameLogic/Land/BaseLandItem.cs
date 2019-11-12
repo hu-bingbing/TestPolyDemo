@@ -130,7 +130,7 @@ namespace GamePloy
 
         public void RayThisLand()
         {
-            Debug.Log("type:" + m_landType);
+            //Debug.Log("type:" + m_landType);
             this.GetComponent<Animator>().SetTrigger("isClick");
             if(m_architectureData != null)
             {

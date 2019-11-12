@@ -9,6 +9,7 @@ namespace GamePloy
 {
     public class GameManager : Singleton<GameManager>, IClue
     {
+        public DeleClickTechBtn OnClickTechBtn;
         public DeleAction OnClickMapItem;
         public DeleAction OnRefreshGameUI;
         public DeleChangeFigure OnChangeGameGold;
@@ -92,9 +93,12 @@ namespace GamePloy
             
         }
 
-        
+        public void Release(object args = null)
+        {
 
-    
+        }
+
+
     }
 }
 

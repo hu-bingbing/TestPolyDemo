@@ -197,8 +197,11 @@ namespace GamePloy
         {
             SendMessage(target, "Show", arg);
         }
-        
 
+        public void Release(object args = null)
+        {
+
+        }
 
     }
 }

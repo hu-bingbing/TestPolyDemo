@@ -93,7 +93,7 @@ namespace GamePloy
         {
             if (!m_ownTechList.Contains(_tempData))
             {
-                Debug.LogWarning("-------addown:" + _tempData.Id);
+                Debug.LogWarning("-------addOwn:" + _tempData.Id);
                 m_ownTechList.Add(_tempData);
             }
 
@@ -126,6 +126,11 @@ namespace GamePloy
         public void ToUpdate()
         {
            
+        }
+
+        public void Release(object args = null)
+        {
+
         }
     }
 }

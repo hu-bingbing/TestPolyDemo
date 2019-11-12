@@ -154,5 +154,9 @@ namespace GamePloy
 
     public delegate void DeleOnRefreshNewTech(ConfigTechnologyData techData = null);
 
+    public delegate void DeleGestureTap(Gesture gesture);
+
+    public delegate void DeleClickTechBtn(ConfigTechnologyData techData);
+
     #endregion
 }

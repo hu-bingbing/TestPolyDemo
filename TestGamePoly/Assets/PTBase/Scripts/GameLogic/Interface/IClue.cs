@@ -19,6 +19,8 @@ namespace GamePloy
         /// 规定间隔下update更新
         /// </summary>
         void ToUpdate();
+
+        void Release(object args = null);
     }
 }
 
