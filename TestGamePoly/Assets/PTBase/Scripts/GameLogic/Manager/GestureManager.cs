@@ -20,26 +20,56 @@ namespace GamePloy
         {
             get { return m_isGesture; }
         }
+        
 
         public DeleGestureTap OnGestureTap;
 
         public void Initialize(object args = null)
         {
             this.transform.GetComponent<TapRecognizer>().OnGesture += OnTap;
+            this.transform.GetComponent<FingerDownDetector>().OnFingerDown += OnDown;
+            this.transform.GetComponent<FingerUpDetector>().OnFingerUp += OnUp;
+            this.transform.GetComponent<FingerMotionDetector>().OnFingerMove += OnFinger;
             SetGesture(true);
        
+        }
+
+        private void OnUp(FingerUpEvent eventData)
+        {
+            if (m_isGesture)
+            {
+                if (OnGestureTap != null)
+                {
+                    OnGestureTap(eventData.Position);
+                }
+            }
+        }
+
+        private void OnDown(FingerDownEvent eventData)
+        {
+         
+        }
+
+        private void OnFinger(FingerMotionEvent eventData)
+        {
+            if (eventData.Phase == FingerMotionPhase.Started)
+            {
+      
+            }else if(eventData.Phase == FingerMotionPhase.Ended)
+            {
+               
+            }
         }
 
         private void OnTap(TapGesture gesture)
         {
             if (m_isGesture)
             {
-                if (OnGestureTap != null)
+                if(gesture.State == GestureRecognitionState.Ended)
                 {
-                    OnGestureTap(gesture);
+                    LevelManager.Instance.SetClickBolck(true);
                 }
             }
-
         }
 
         /// <summary>
@@ -59,6 +89,10 @@ namespace GamePloy
         public void Release(object args = null)
         {
             this.transform.GetComponent<TapRecognizer>().OnGesture -= OnTap;
+            this.transform.GetComponent<FingerDownDetector>().OnFingerDown -= OnDown;
+            this.transform.GetComponent<FingerUpDetector>().OnFingerUp -= OnUp;
+            this.transform.GetComponent<FingerMotionDetector>().OnFingerMove -= OnFinger;
+
         }
     }
 }

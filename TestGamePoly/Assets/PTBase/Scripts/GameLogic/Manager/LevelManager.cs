@@ -33,6 +33,13 @@ namespace GamePloy
             get { return m_currentLevelData; }
         }
 
+        private BaseLandItem m_currentClickLandItem;
+        public BaseLandItem CurrentClickLandItem
+        {
+            get { return m_currentClickLandItem; }
+        }
+
+
         private Transform m_landRoot;
         private Transform m_cameraRoot;
 
@@ -80,12 +87,13 @@ namespace GamePloy
 
         private void OnClickTech(ConfigTechnologyData techData)
         {
-          
+            Debug.Log("--onclik--tech:" + techData.Id);
+
+            SetClickBolck(false);
         }
 
-        private void OnGestureClickTap(Gesture gesture)
+        private void OnGestureClickTap(Vector3 gesturePos)
         {
-            var gesturePos = gesture.Position;
             if (m_clickBlock)
             {
                 RayTheMap(gesturePos);
@@ -101,6 +109,7 @@ namespace GamePloy
             {
                 Debug.Log("rayhit:" + hit.transform.name);
                 var temp = hit.transform.GetComponent<BaseLandItem>();
+                m_currentClickLandItem = temp;
                 temp.RayThisLand();
                 GameManager.Instance.ClickGameMapItem(temp);
             }

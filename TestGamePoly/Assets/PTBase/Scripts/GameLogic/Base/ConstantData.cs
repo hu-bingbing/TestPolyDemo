@@ -88,6 +88,7 @@ namespace GamePloy
 
         public static string uiTechnologyItem = "UI/Page/Item/uiTechnologyItem";
         public static string uiSkillItem = "UI/Page/Item/uiSkillItem";
+        public static string uiFunctionItem = "UI/Page/Item/uiFunctionItem";
 
 
         #endregion
@@ -154,7 +155,7 @@ namespace GamePloy
 
     public delegate void DeleOnRefreshNewTech(ConfigTechnologyData techData = null);
 
-    public delegate void DeleGestureTap(Gesture gesture);
+    public delegate void DeleGestureTap(Vector3 gesturePos);
 
     public delegate void DeleClickTechBtn(ConfigTechnologyData techData);
 

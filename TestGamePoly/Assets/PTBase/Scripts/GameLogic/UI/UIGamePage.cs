@@ -14,6 +14,7 @@ public class UIGamePage : UIPolyPage
     public Text turnText;
     public Button btnLearn;
     public ScrollRect selectScroll;
+    public ScrollRect functionScroll;
     private List<ItemTechnology> m_btnItemList;
 
     protected override void OnOpen(object arg = null)
@@ -45,7 +46,7 @@ public class UIGamePage : UIPolyPage
 
     void InitScroll()
     {
-        SetScroll(true);
+        SetSelectScroll(true);
         m_btnItemList = new List<ItemTechnology>();
         var _tempArray = FindList<ItemTechnology>();
         foreach(var value in _tempArray)
@@ -53,7 +54,8 @@ public class UIGamePage : UIPolyPage
             value.gameObject.SetActive(false);
             m_btnItemList.Add(value);
         }
-        SetScroll();
+        SetSelectScroll();
+        SetFuncScroll();
     }
 
     private void OnClickLearn(string obj)
@@ -63,14 +65,25 @@ public class UIGamePage : UIPolyPage
 
     private void OnClickMapItem()
     {
+        RefreshSelectScroll();
+        RefreshFuncScroll();
+    }
+
+    public void SetSelectScroll(bool isshow = false)
+    {
+        selectScroll.gameObject.SetActive(isshow);
+    }
+
+    private void RefreshSelectScroll()
+    {
         var list = TechnologyManager.Instance.NeedTechnologyList;
-        if(list != null && list.Count > 0)
+        if (list != null && list.Count > 0)
         {
-            SetScroll(true);
-            for(int i = 0; i < list.Count; i++)
+            SetSelectScroll(true);
+            for (int i = 0; i < list.Count; i++)
             {
                 var _tempCon = list[i];
-                if(i < m_btnItemList.Count)
+                if (i < m_btnItemList.Count)
                 {
                     m_btnItemList[i].gameObject.SetActive(true);
                     m_btnItemList[i].Create(_tempCon);
@@ -87,9 +100,14 @@ public class UIGamePage : UIPolyPage
         }
     }
 
-    public void SetScroll(bool isshow = false)
+    public void SetFuncScroll(bool isShow = false)
     {
-        selectScroll.gameObject.SetActive(isshow);
+        functionScroll.gameObject.SetActive(isShow);
+    }
+
+    private void RefreshFuncScroll()
+    {
+
     }
 
     protected override void OnClose(object arg = null)

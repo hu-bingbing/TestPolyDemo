@@ -81,6 +81,7 @@ namespace GamePloy
 
         public void ClickGameMapItem(BaseLandItem _item)
         {
+            Debug.Log("---clickMapItem:" + _item.name);
             TechnologyManager.Instance.SetNeedTechnology(106);
             if(OnClickMapItem != null)
             {
