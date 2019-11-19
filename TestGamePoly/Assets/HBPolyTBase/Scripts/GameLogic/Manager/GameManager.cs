@@ -82,6 +82,9 @@ namespace GamePloy
         public void ClickGameMapItem(BaseLandItem _item)
         {
             Debug.Log("---clickMapItem:" + _item.name);
+            var tempTerriData = _item.thisTerrainData;
+            var tempArchitectureData = _item.thisArchitectureData;
+
             TechnologyManager.Instance.SetNeedTechnology(106);
             if(OnClickMapItem != null)
             {

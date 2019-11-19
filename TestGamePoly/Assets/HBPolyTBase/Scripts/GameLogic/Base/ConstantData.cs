@@ -116,6 +116,7 @@ namespace GamePloy
 
         public const string LoginModule = "LoginModule";
         public const string GameModule = "GameModule";
+        public const string FormToolModule = "FormToolModule";
         public const string ConfigConstantMethodModule = "ConfigConstantMethodModule";
 
         public const string SettingModule = "SettingModule";

@@ -21,12 +21,20 @@ namespace GamePloy
             get { return m_bornTechnology; }
         }
         /// <summary>
-        /// 作用类型
+        /// 作用类型字典
         /// </summary>
         private Dictionary<int, List<ConfigTechnologyData>> m_technologyEffect;
         public Dictionary<int, List<ConfigTechnologyData>> OwnTechnologyEffectDic
         {
             get { return m_technologyEffect; }
+        }
+        /// <summary>
+        /// 作用类型Id
+        /// </summary>
+        private int m_techEffectId;
+        public int TechEffectId
+        {
+            get { return m_techEffectId; }
         }
 
         /// <summary>
@@ -75,6 +83,7 @@ namespace GamePloy
         {
             if (m_technologyEffect.ContainsKey(_effectid))
             {
+                m_techEffectId = _effectid;
                 //m_needTechnologyList.Clear();
                 m_needTechnologyList = m_technologyEffect[_effectid];
             }

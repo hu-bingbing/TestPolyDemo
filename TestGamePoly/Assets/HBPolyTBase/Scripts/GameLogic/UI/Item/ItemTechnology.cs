@@ -19,12 +19,13 @@ namespace GamePloy.UI
             {
                 thisTechnologyData = (ConfigTechnologyData)arg;
             }
-            
+            var tempEffectId = TechnologyManager.Instance.TechEffectId;
+           // FormTool.Instance.SetWork(tempEffectId);
             selfBtn.onClick.AddListener(OnClickSelf);
             selfBtn.image.sprite = Resources.Load<Sprite>(thisTechnologyData.IconAssetPath);
-         
 
-            string _showname = thisTechnologyData.Id.ToString() + "" + thisTechnologyData.Name;
+
+            string _showname = thisTechnologyData.TechnologyName + " id:" + thisTechnologyData.Id.ToString();
             contentText.text = _showname;
             normalText.text = _showname;
         }

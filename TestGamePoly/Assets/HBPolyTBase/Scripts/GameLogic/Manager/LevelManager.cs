@@ -87,7 +87,7 @@ namespace GamePloy
 
         private void OnClickTech(ConfigTechnologyData techData)
         {
-            Debug.Log("--onclik--tech:" + techData.Id);
+            Debug.Log("--onclik--tech:" + techData.Id + "  listnum: " + techData.EffectDataList.Count);
 
             SetClickBolck(false);
         }
@@ -99,7 +99,10 @@ namespace GamePloy
                 RayTheMap(gesturePos);
             }
         }
-
+        /// <summary>
+        /// 点击到世界地图上的砖块
+        /// </summary>
+        /// <param name="_pos"></param>
         public void RayTheMap(Vector3 _pos)
         {
             RaycastHit hit;

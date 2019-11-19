@@ -71,21 +71,30 @@ namespace GamePloyConfigData
             {
                 m_effect00 = int.Parse(dic["effect00"].ToString());
                 m_result00 = int.Parse(dic["result00"].ToString());
-                EffectDataList.Add(new TechnologyEffectData(m_effect00, m_result00));
+                if(m_effect00 != 0)
+                {
+                    EffectDataList.Add(new TechnologyEffectData(m_effect00, m_result00));
+                }
             }
 
             if(dic["effect01"] != null)
             {
                 m_effect01 = int.Parse(dic["effect01"].ToString());
                 m_result01 = int.Parse(dic["result01"].ToString());
-                EffectDataList.Add(new TechnologyEffectData(m_effect01, m_result01));
+                if(m_effect01 != 0)
+                {
+                    EffectDataList.Add(new TechnologyEffectData(m_effect01, m_result01));
+                }
             }
 
             if(dic["effect02"] != null)
             {
                 m_effect02 = int.Parse(dic["effect02"].ToString());
                 m_result02 = int.Parse(dic["result02"].ToString());
-                EffectDataList.Add(new TechnologyEffectData(m_effect02, m_result02));
+                if(m_effect02 != 0)
+                {
+                    EffectDataList.Add(new TechnologyEffectData(m_effect02, m_result02));
+                }
             }
 
 
